@@ -11,8 +11,19 @@ I'm Ramjan, a Full Stack Developer with experience in React, Node.js, Express.js
 •	Back-End Technologies: Node.js, Express.js <br>
 •	Databases: MongoDB <br>
 •	Tools & Platforms: Git & GitHub
-## **My Projects**
 
+## **Educational Qualification**
+
+#### Master of Science (Engg)
+• Institution	: Islamic University, Kushtia<br>
+• Major       : Information & Communication Technology (ICT)<br>
+• Result	    : CGPA: 3.58<br>
+#### Bachelor of Science (Hons)
+• Institution	: Islamic University, Kushtia<br>
+• Major			  : Information & Communication Technology (ICT)<br>
+• Result			: CGPA: 3.39
+
+## **My Projects**
 #### 1. Doctor's appointment booking and schedule maintenance -- **[Live](https://doctor-appointments-book.vercel.app/)**  | **[GitHub](https://github.com/Ramjanict/Doctor-appointment-booking-app)**
 •	The system defines three roles: Admin, Doctor, and Patient, each with specific permissions.<br>
 •	Admins are responsible for creating and managing doctors and scheduling.<br>
