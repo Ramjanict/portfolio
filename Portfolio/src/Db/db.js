@@ -34,7 +34,7 @@ const data = [
     heading: "Library management",
     des: "Library management system",
     category: "ReactJS",
-    github: "https://github.com/Ramjanict/Book-management",
+    github: "https://github.com/Ramjanict/Book-management-app",
     live: "https://book-management-topaz.vercel.app/",
   },
   {
