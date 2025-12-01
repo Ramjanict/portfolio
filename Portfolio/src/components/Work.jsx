@@ -69,7 +69,7 @@ const Work = () => {
           </h2>
 
           <div className="flex flex-wrap items-center justify-center w-full gap-4 py-5 ">
-            {["All", "Ecommerce", "MERN", "ReactJS"].map((category) => (
+            {["All", "Ecommerce", "MERN", "ReactJS" , "Client"].map((category) => (
               <button
                 key={category}
                 onClick={() => {

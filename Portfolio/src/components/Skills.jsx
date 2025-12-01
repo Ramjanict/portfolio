@@ -1,5 +1,13 @@
-import React from "react";
+import { FaFacebookF, FaGithub, FaLinkedin } from "react-icons/fa";
+import { Link } from "react-scroll";
 import html from "../assets/images/1.png";
+import expressjs from "../assets/images/10.png";
+import git from "../assets/images/12.png";
+import mongoDB from "../assets/images/15.png";
+import postgrees from "../assets/images/16.png";
+import typescript from "../assets/images/17.webp";
+import nextjs from "../assets/images/18.svg";
+import Zustand from "../assets/images/19.jpg";
 import css from "../assets/images/2.png";
 import javascript from "../assets/images/3.png";
 import react from "../assets/images/4.png";
@@ -8,19 +16,18 @@ import tailwind from "../assets/images/6.png";
 import bootstrap from "../assets/images/7.png";
 import jquery from "../assets/images/8.png";
 import nodejs from "../assets/images/9.png";
-import expressjs from "../assets/images/10.png";
-import mongoDB from "../assets/images/15.png";
-import git from "../assets/images/12.png";
-import { Link } from "react-scroll";
-import { FaLinkedin, FaGithub, FaFacebookF } from "react-icons/fa";
 const skills = [
   { heading: "html", imgage: html },
   { heading: "css", imgage: css },
   { heading: "javascript", imgage: javascript },
+  { heading: "typescript", imgage: typescript },
   { heading: "react", imgage: react },
-  { heading: "nodejs", imgage: nodejs },
+  { heading: "Nexjs", imgage: nextjs },
   { heading: "redux", imgage: expressjs },
+  { heading: "Zustand", imgage: Zustand },
+  { heading: "nodejs", imgage: nodejs },
   { heading: "expressjs", imgage: redux },
+  { heading: "postgrees", imgage: postgrees },
   { heading: "mongoDB", imgage: mongoDB },
   { heading: "tailwind", imgage: tailwind },
   { heading: "bootstrap", imgage: bootstrap },
