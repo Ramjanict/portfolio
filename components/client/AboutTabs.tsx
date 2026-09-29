@@ -26,6 +26,8 @@ interface Education {
   institution: string;
   degree: string;
   period: string;
+  major?: string;
+  result?: string;
 }
 
 const EXPERIENCES: Experience[] = [
@@ -57,19 +59,28 @@ const EXPERIENCES: Experience[] = [
 
 const EDUCATIONS: Education[] = [
   {
-    institution: "Purnea College of Engineering (PCE), Purnea",
-    degree: "B Tech in Computer Science(AI)",
-    period: "2022 - 2026",
+    institution: "Islamic University, Kushtia",
+    degree: "Master of Science in Engineering (M.Sc. Engg.)",
+    major: "Information & Communication Technology (ICT)",
+    result: "CGPA: 3.58 / 4.00",
+    period: "2019 - 2022",
   },
   {
-    institution: "A L Y College, Triveniganj",
-    degree: "Higher Secondary School (PCM)",
-    period: "2019 - 2021",
+    institution: "Islamic University, Kushtia",
+    degree: "Bachelor of Science (Honours)",
+    major: "Information & Communication Technology (ICT)",
+    result: "CGPA: 3.39 / 4.00",
+    period: "2014 - 2019",
   },
   {
-    institution: "K C Mount Fort School, Muzaffarpur",
-    degree: "High School",
-    period: "2018 - 2019",
+    institution: "Police Lines School And College, Kushtia",
+    degree: "Higher Secondary Certificate (HSC)",
+    period: "2011 - 2013",
+  },
+  {
+    institution: "Kharijathak Secondary School, Kushtia",
+    degree: "Secondary School Certificate (SSC)",
+    period: "2010 - 2011",
   },
 ];
 
@@ -124,8 +135,8 @@ const PERSONAL_INFO: PersonalInfoItem[] = [
   { icon: User, value: "Md Ramjan Ali" },
   { icon: Phone, value: "+91 70507 41633" },
   { icon: Mail, value: "support@mdramjanali.com" },
-  { icon: GraduationCap, value: "B Tech in Computer Science(AI)" },
-  { icon: Home, value: "Bihar, India" },
+  { icon: GraduationCap, value: "M.Sc. Engg. in ICT" },
+  { icon: Home, value: "Kushtia, Bangladesh" },
 ];
 
 const LANGUAGES = ["English", "Hindi"];
@@ -248,11 +259,21 @@ export default function AboutTabs() {
                     <div key={idx} className="relative group">
                       <span className="absolute -left-[27px] top-1.5 h-3 w-3 rounded-full bg-main ring-4 ring-background" />
                       <h4 className="font-bold text-sm sm:text-base text-foreground leading-snug">
-                        {edu.institution}
-                      </h4>
-                      <p className="text-xs text-muted-foreground mt-0.5">
                         {edu.degree}
+                      </h4>
+                      <p className="text-xs font-semibold text-main/90 mt-0.5">
+                        {edu.institution}
                       </p>
+                      {edu.major && (
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          Major: <span className="text-foreground/80">{edu.major}</span>
+                        </p>
+                      )}
+                      {edu.result && (
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          Result: <span className="font-semibold text-foreground/90">{edu.result}</span>
+                        </p>
+                      )}
                       <div className="flex items-center gap-1.5 text-xs text-muted-foreground mt-1">
                         <Calendar className="h-3 w-3" />
                         <span>{edu.period}</span>

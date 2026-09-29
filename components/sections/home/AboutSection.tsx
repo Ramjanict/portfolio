@@ -4,10 +4,7 @@ import CommonSpace from "@/components/shared/CommonSpace";
 
 export default function AboutSection() {
   return (
-    <section
-      id="about"
-      className="w-full bg-background border-t border-border/40 transition-colors"
-    >
+    <section id="about" className="w-full bg-background  ">
       <CommonSpace>
         <div>
           <div className="text-center max-w-2xl mx-auto mb-4">
