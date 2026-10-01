@@ -19,7 +19,7 @@ const ActionButton: React.FC<ActionButtonProps> = ({
   className = "",
 }) => {
   const baseStyles =
-    "inline-flex items-center gap-2 font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95";
+    "inline-flex items-center gap-2 font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95 w-full sm:w-fit ";
 
   const variants = {
     primary: "bg-main hover:bg-[#e05a3c] text-white",

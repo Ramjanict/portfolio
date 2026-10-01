@@ -112,10 +112,10 @@ export default function Footer() {
                   <Mail className="h-4 w-4 text-[#FF7A66] shrink-0" />
 
                   <a
-                    href="mailto:support@mdramjanali.com"
+                    href="mailto:mdramjan.ict@gmail.com"
                     className="hover:text-foreground transition-colors truncate"
                   >
-                    support@mdramjanali.com
+                    mdramjan.ict@gmail.com
                   </a>
                 </li>
                 <li className="flex items-center gap-2.5">
@@ -125,7 +125,7 @@ export default function Footer() {
                     href="tel:+917050741633"
                     className="hover:text-foreground transition-colors"
                   >
-                    +91 70507 41633
+                    +8801303488984
                   </a>
                 </li>
                 <li className="flex items-center gap-2.5">

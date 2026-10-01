@@ -1,3 +1,6 @@
+import ActionButton from "@/components/shared/ActionButton";
+import CommonHeader from "@/components/shared/CommonHeader";
+import CommonSpace from "@/components/shared/CommonSpace";
 import { CLIENT_PROJECTS, LEARNING_PROJECTS } from "@/data/projects";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -10,38 +13,29 @@ const FEATURED_PROJECTS = [
 
 export default function ProjectsSection() {
   return (
-    <section
-      id="projects"
-      className="w-full py-16 md:py-24 bg-background border-t border-border/40 transition-colors"
-    >
-      <div>
-        <div className="grid lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Heading & Intro */}
-          <div className="lg:col-span-4 lg:sticky lg:top-24">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span>🎯</span>
-              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-main uppercase">
-                Latest Projects
-              </span>
-            </div>
+    <section id="projects" className="w-full  bg-background">
+      <CommonSpace>
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <div className="flex flex-col gap-6">
+            <CommonHeader
+              title="Latest Projects"
+              description="  Discover My Latest Projects: Take a tour of my production-ready
+              applications. From interactive React & Next.js user interfaces to
+              scalable Node.js/NestJS backends with PostgreSQL and Docker, see
+              how modern full-stack development solves real-world challenges."
+            />
 
-            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-6">
-              Discover My Latest Projects: Experience a quick tour of my recent
-              work. See firsthand how my expertise in MERN Stack, AI models, and
-              modern frameworks brings innovation to life.
-            </p>
-
-            <Link
+            <ActionButton
               href="/projects"
-              className="inline-flex items-center gap-2 bg-main hover:bg-[#e05a3c] text-white font-semibold px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all text-sm"
+              variant="primary"
+              className="flex items-center gap-2"
             >
-              All projects
+              View all projects
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </ActionButton>
           </div>
 
-          {/* Right Column: Project Cards Grid */}
-          <div className="lg:col-span-8 grid sm:grid-cols-2 gap-6">
+          <div className=" grid sm:grid-cols-2 gap-6">
             {FEATURED_PROJECTS.map((proj, idx) => (
               <div
                 key={idx}
@@ -128,7 +122,7 @@ export default function ProjectsSection() {
             ))}
           </div>
         </div>
-      </div>
+      </CommonSpace>
     </section>
   );
 }

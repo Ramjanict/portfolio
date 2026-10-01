@@ -1,6 +1,7 @@
 "use client";
 
 import ramjanImage from "@/public/images/ramjan.png";
+import softvenceLogo from "@/public/images/softvence.png";
 import {
   Briefcase,
   Calendar,
@@ -10,6 +11,7 @@ import {
   Phone,
   User,
 } from "lucide-react";
+import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -20,6 +22,7 @@ interface Experience {
   type: string;
   role: string;
   period: string;
+  logo?: StaticImageData;
 }
 
 interface Education {
@@ -32,28 +35,11 @@ interface Education {
 
 const EXPERIENCES: Experience[] = [
   {
-    company: "Swaasta",
+    company: "Softvence Agency",
     type: "Full Time",
-    role: "AI Engineer",
-    period: "2024 August - Present",
-  },
-  {
-    company: "Lexipitch",
-    type: "Full Time",
-    role: "Software Engineer",
-    period: "2024 Oct - 2024 Nov",
-  },
-  {
-    company: "Swaasta",
-    type: "Full Time",
-    role: "FullStack Engineer",
-    period: "2024 Oct - 2025 Sep",
-  },
-  {
-    company: "HealthCRAD",
-    type: "Internship",
-    role: "FullStack Developer",
-    period: "2024 March - 2024 August",
+    role: "Full Stack Developer",
+    period: "2024 - Present",
+    logo: softvenceLogo,
   },
 ];
 
@@ -89,40 +75,63 @@ interface SkillCategory {
   skills: string[];
 }
 
-const SKILL_CATEGORIES: SkillCategory[] = [
+export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     category: "Frontend",
     skills: [
       "React.js",
       "Next.js",
+      "TypeScript",
+      "JavaScript",
       "Tailwind CSS",
-      "React Native (Expo)",
-      "Redux",
+      "Shadcn UI",
+      "Redux Toolkit",
+      "Zustand",
+      "React Hook Form",
+      "HTML5 / CSS3",
     ],
   },
   {
     category: "Backend",
-    skills: ["Node.js", "Express.js", "REST APIs", "GraphQL"],
+    skills: [
+      "Node.js",
+      "NestJS",
+      "Express.js",
+      "REST APIs",
+      "JWT Authentication",
+      "WebSocket",
+      "Socket.IO",
+      "Microservices",
+    ],
   },
   {
-    category: "Databases",
-    skills: ["MongoDB", "PostgreSQL"],
+    category: "Databases & ORM",
+    skills: [
+      "PostgreSQL",
+      "MongoDB",
+      "Prisma ORM",
+      "Database Design",
+      "Schema Migrations",
+    ],
   },
   {
-    category: "GenAI & ML",
-    skills: ["GenAI", "LangChain", "Vector DBs", "RAG"],
+    category: "DevOps & Cloud",
+    skills: [
+      "Docker",
+      "Docker Compose",
+      "GitHub Actions (CI/CD)",
+      "Linux / VPS",
+      "Nginx",
+      "Render",
+    ],
   },
   {
-    category: "Cloud & DevOps",
-    skills: ["AWS (EC2, S3, CloudFront)", "Docker"],
+    category: "Testing & QA",
+    skills: ["Jest", "Vitest", "Playwright", "Cypress"],
   },
   {
-    category: "Programming Languages",
-    skills: ["JavaScript", "TypeScript", "C++"],
-  },
-  {
-    category: "DSA",
-    skills: ["Data Structures & Algorithms in C++"],
+    category: "Tools & Workflow",
+    skills: ["Git", "GitHub", "Postman", "VS Code", "Figma"],
   },
 ];
 
@@ -133,13 +142,13 @@ interface PersonalInfoItem {
 
 const PERSONAL_INFO: PersonalInfoItem[] = [
   { icon: User, value: "Md Ramjan Ali" },
-  { icon: Phone, value: "+91 70507 41633" },
-  { icon: Mail, value: "support@mdramjanali.com" },
+  { icon: Phone, value: "+8801303488984" },
+  { icon: Mail, value: "mdramjan.ict@gmail.com" },
   { icon: GraduationCap, value: "M.Sc. Engg. in ICT" },
   { icon: Home, value: "Kushtia, Bangladesh" },
 ];
 
-const LANGUAGES = ["English", "Hindi"];
+const LANGUAGES = ["English", "Bengali", "Hindi"];
 
 export default function AboutTabs() {
   const [activeTab, setActiveTab] = useState<
@@ -217,16 +226,20 @@ export default function AboutTabs() {
 
             <div className="grid sm:grid-cols-2 gap-8">
               {/* Experience Column */}
-              <div>
+              <div className="">
                 <div className="flex items-center gap-2 mb-6 text-main font-bold text-base">
                   <Briefcase className="h-5 w-5" />
                   <h3>Experience</h3>
                 </div>
 
-                <div className="space-y-6 relative border-l-2 border-main/30 ml-2.5 pl-5">
+                <div className="space-y-6">
                   {EXPERIENCES.map((exp, idx) => (
-                    <div key={idx} className="relative group">
-                      <span className="absolute -left-[27px] top-1.5 h-3 w-3 rounded-full bg-main ring-4 ring-background" />
+                    <div key={idx} className="group">
+                      {exp.logo && (
+                        <div className="relative mb-3 h-8 w-30 overflow-hidden rounded-xl ">
+                          <Image src={exp.logo} alt={`${exp.company} logo`} />
+                        </div>
+                      )}
                       <div className="flex items-center gap-2 flex-wrap mb-1">
                         <span className="font-bold text-sm sm:text-base text-foreground">
                           {exp.company}
@@ -266,12 +279,18 @@ export default function AboutTabs() {
                       </p>
                       {edu.major && (
                         <p className="text-xs text-muted-foreground mt-0.5">
-                          Major: <span className="text-foreground/80">{edu.major}</span>
+                          Major:{" "}
+                          <span className="text-foreground/80">
+                            {edu.major}
+                          </span>
                         </p>
                       )}
                       {edu.result && (
                         <p className="text-xs text-muted-foreground mt-0.5">
-                          Result: <span className="font-semibold text-foreground/90">{edu.result}</span>
+                          Result:{" "}
+                          <span className="font-semibold text-foreground/90">
+                            {edu.result}
+                          </span>
                         </p>
                       )}
                       <div className="flex items-center gap-1.5 text-xs text-muted-foreground mt-1">

@@ -9,7 +9,7 @@ export default function AboutSection() {
         <div>
           <div className="text-center max-w-2xl mx-auto mb-4">
             <div className="inline-flex items-center gap-2 mb-3">
-              <CommonHeader>About me</CommonHeader>
+              <CommonHeader title="About Me" />
             </div>
           </div>
 

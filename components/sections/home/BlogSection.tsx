@@ -1,3 +1,6 @@
+import ActionButton from "@/components/shared/ActionButton";
+import CommonHeader from "@/components/shared/CommonHeader";
+import CommonSpace from "@/components/shared/CommonSpace";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
 import Link from "next/link";
 
@@ -52,33 +55,23 @@ const ARTICLES: Article[] = [
 
 export default function BlogSection() {
   return (
-    <section
-      id="blog"
-      className="w-full py-16 md:py-24 bg-background border-t border-border/40 transition-colors"
-    >
-      <div className="">
+    <section id="blog" className="w-full">
+      <CommonSpace>
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-          <div>
-            <div className="inline-flex items-center gap-2 mb-2">
-              <span>🎯</span>
-              <span className="text-xs sm:text-sm font-bold tracking-[0.2em] text-main uppercase">
-                Latest Articles
-              </span>
-            </div>
-            <p className="text-sm sm:text-base text-muted-foreground">
-              Thoughts and insights on web development, React, Next.js, and
-              autonomous AI systems.
-            </p>
-          </div>
+          <CommonHeader
+            title="Latest Articles"
+            description="Thoughts and insights on modern frontend frameworks, RESTful API design, Node.js, and database engineering."
+          />
 
-          <Link
+          <ActionButton
             href="/blog"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-muted-foreground hover:text-main transition-colors self-start sm:self-auto"
+            variant="primary"
+            className="flex items-center gap-2"
           >
-            <span>View All Blogs</span>
+            View All Blogs
             <ArrowRight className="h-4 w-4" />
-          </Link>
+          </ActionButton>
         </div>
 
         {/* 3 Articles Grid */}
@@ -148,7 +141,7 @@ export default function BlogSection() {
             </article>
           ))}
         </div>
-      </div>
+      </CommonSpace>
     </section>
   );
 }

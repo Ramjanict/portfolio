@@ -10,8 +10,8 @@ const CONTACT_INFO = [
   {
     icon: Mail,
     label: "Email",
-    value: "support@mdramjanali.com",
-    href: "mailto:support@mdramjanali.com",
+    value: "mdramjan.ict@gmail.com",
+    href: "mailto:mdramjan.ict@gmail.com",
   },
   {
     icon: Phone,
