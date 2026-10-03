@@ -1,5 +1,6 @@
 "use client";
 
+import ProjectGallery from "./ProjectGallery";
 import type { ClientProject, LearningProject } from "@/data/projects";
 import {
   ArrowLeft,
@@ -50,6 +51,11 @@ export default function ProjectDetailView({
     ? clientProject.category
     : learningProject!.category;
 
+  const images =
+    project.images && project.images.length > 0
+      ? project.images
+      : [project.image];
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
       {/* Back link */}
@@ -65,28 +71,12 @@ export default function ProjectDetailView({
       <div className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-10 relative">
         {/* ─── Left Column: Scrollable Content ─── */}
         <div className="flex-1 min-w-0">
-          {/* Title & Badges */}
-          <div className="mb-8">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight mb-3">
-              {title}
-            </h1>
-            <div className="flex flex-wrap gap-2">
-              <span
-                className={`text-[11px] font-bold px-3 py-1 rounded-full ${
-                  status === "Ongoing"
-                    ? "bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-400"
-                    : status === "Completed"
-                      ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400"
-                      : "bg-blue-100 text-blue-700 dark:bg-blue-950/60 dark:text-blue-400"
-                }`}
-              >
-                {status}
-              </span>
-              <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-muted text-muted-foreground">
-                {category}
-              </span>
-            </div>
-          </div>
+          {/* Multi-Image Gallery & Title Header */}
+          <ProjectGallery
+            title={title}
+            category={category}
+            images={images}
+          />
 
           {/* Overview */}
           <section className="mb-10">
@@ -106,6 +96,7 @@ export default function ProjectDetailView({
                 <MessageSquare className="h-5 w-5 text-main" />
                 Developer&apos;s Note
               </h2>
+
               <p className="text-sm text-muted-foreground leading-relaxed italic">
                 {clientProject.developersNote}
               </p>

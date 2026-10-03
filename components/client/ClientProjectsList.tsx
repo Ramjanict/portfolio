@@ -4,6 +4,7 @@ import { CLIENT_PROJECTS } from "@/data/projects";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import CategoryButton from "../shared/CategoryButton";
 
 type ProjectCategory =
   | "All Projects"
@@ -36,17 +37,12 @@ export default function ClientProjectsList() {
       {/* Category Filter Tabs */}
       <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
         {CATEGORIES.map((cat) => (
-          <button
+          <CategoryButton
             key={cat}
+            category={cat}
+            isSelected={activeCategory === cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all ${
-              activeCategory === cat
-                ? "bg-main text-white shadow-md"
-                : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
-            }`}
-          >
-            {cat}
-          </button>
+          />
         ))}
       </div>
 

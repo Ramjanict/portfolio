@@ -32,7 +32,7 @@ const CommonHeader: React.FC<Props> = ({
         )}
       </div>
       {description && (
-        <p className="text-sm sm:text-lg text-muted-foreground mt-6">
+        <p className="text-sm sm:text-lg text-muted-foreground mt-2">
           {description}
         </p>
       )}

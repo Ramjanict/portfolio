@@ -4,6 +4,7 @@ import { LEARNING_PROJECTS } from "@/data/projects";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import CategoryButton from "../shared/CategoryButton";
 
 type LearningCategory = "All Projects" | "React.js" | "MERN" | "Next.js";
 
@@ -28,17 +29,12 @@ export default function LearningProjectsList() {
       {/* Filter Pills */}
       <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
         {CATEGORIES.map((cat) => (
-          <button
+          <CategoryButton
             key={cat}
+            category={cat}
+            isSelected={selectedCategory === cat}
             onClick={() => setSelectedCategory(cat)}
-            className={`px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
-              selectedCategory === cat
-                ? "bg-main text-white shadow-md"
-                : "bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80"
-            }`}
-          >
-            {cat}
-          </button>
+          />
         ))}
       </div>
 

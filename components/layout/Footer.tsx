@@ -27,49 +27,42 @@ const SOCIALS = [
 
 function ColumnHeading({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <h3 className="text-[15px] font-semibold text-foreground mb-2">
-        {children}
-      </h3>
-      <div className="w-6 h-0.5 bg-[#FF7A66]/60 mb-5 rounded-full" />
-    </>
+    <h3 className="text-sm sm:text-base font-bold text-foreground mb-4">
+      {children}
+    </h3>
   );
 }
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-background py-6 transition-colors">
+    <footer className="relative w-full bg-background pt-8 pb-4 transition-colors">
       <Container>
-        {/* Main Enclosed Card */}
-        <div className="relative overflow-hidden rounded-3xl border border-main/20 bg-[#F5F5F7] dark:bg-[#181824] dark:border-white/10 px-8 sm:px-14 pt-12 pb-8 transition-colors">
-          {/* Top gradient accent line */}
-          <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-main/30 via-[#FF7A66] to-main/30" />
-
+        {/* Main Enclosed Card Container */}
+        <div className="relative overflow-hidden rounded-3xl border border-[#FCE6E1] dark:border-white/10 bg-[#f9f9fc] dark:bg-[#181827] px-6 sm:px-12 pt-10 pb-6 transition-colors shadow-xs">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
             {/* Column 1: Brand & Bio */}
             <div>
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="relative h-10 w-10 overflow-hidden rounded-full shrink-0">
+                <div className="relative h-9 w-9 overflow-hidden rounded-full shrink-0 border border-main/20">
                   <Image
                     src={avatarImg}
                     alt="Md Ramjan Ali"
                     fill
-                    sizes="40px"
+                    sizes="36px"
                     className="object-cover object-top"
                   />
                 </div>
-                <span className="text-xl font-semibold text-[#FF7A66]">
+                <span className="text-lg font-extrabold text-[#FF7A66]">
                   Md Ramjan Ali
                 </span>
               </div>
 
-              <p className="text-sm text-muted-foreground  mb-5 max-w-[290px]">
-                Full Stack Developer with 2+ years of experience engineering
-                scalable web systems and APIs using React, Next.js, Node.js, and
-                PostgreSQL.
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-5 max-w-[280px]">
+                Full Stack Engineer with 3+ years building and scaling products
+                end-to-end across backend, mobile, and web platforms.
               </p>
 
-              <div className="flex items-center gap-3.5">
+              <div className="flex items-center gap-3.5 text-[#FF7A66]">
                 {SOCIALS.map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
@@ -77,12 +70,12 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="text-[#FF7A66] hover:text-[#e05a3c] transition-colors"
+                    className="hover:text-[#e05a3c] transition-colors"
                   >
                     <Icon className="h-4 w-4" />
                   </a>
                 ))}
-                <span className="text-[#FF7A66]">
+                <span>
                   <Sparkles className="h-4 w-4" />
                 </span>
               </div>
@@ -91,12 +84,12 @@ export default function Footer() {
             {/* Column 2: Quick Links */}
             <div>
               <ColumnHeading>Quick Links</ColumnHeading>
-              <ul className="space-y-3.5 pl-4">
+              <ul className="space-y-2.5">
                 {QUICK_LINKS.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted-foreground hover:text-main transition-colors"
+                      className="text-xs sm:text-sm text-muted-foreground hover:text-main transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -108,10 +101,9 @@ export default function Footer() {
             {/* Column 3: Contact Info */}
             <div>
               <ColumnHeading>Contact</ColumnHeading>
-              <ul className="space-y-3 text-sm text-muted-foreground">
+              <ul className="space-y-3 text-xs sm:text-sm text-muted-foreground">
                 <li className="flex items-center gap-2.5">
                   <Mail className="h-4 w-4 text-[#FF7A66] shrink-0" />
-
                   <a
                     href="mailto:mdramjan.ict@gmail.com"
                     className="hover:text-foreground transition-colors truncate"
@@ -121,9 +113,8 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Phone className="h-4 w-4 text-[#FF7A66] shrink-0" />
-
                   <a
-                    href="tel:+917050741633"
+                    href="tel:+8801303488984"
                     className="hover:text-foreground transition-colors"
                   >
                     +8801303488984
@@ -131,7 +122,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-2.5">
                   <MapPin className="h-4 w-4 text-[#FF7A66] shrink-0" />
-                  <span>Dhaka, Bangladesh</span>
+                  <span>Kushtia, Bangladesh</span>
                 </li>
               </ul>
             </div>
@@ -139,7 +130,7 @@ export default function Footer() {
             {/* Column 4: Stay Updated */}
             <div>
               <ColumnHeading>Stay Updated</ColumnHeading>
-              <p className="text-sm text-muted-foreground mb-4 leading-7">
+              <p className="text-xs sm:text-sm text-muted-foreground mb-4 leading-relaxed">
                 Subscribe to receive updates on my latest projects and tech
                 articles.
               </p>
@@ -148,7 +139,7 @@ export default function Footer() {
           </div>
 
           {/* Bottom Divider & Legal */}
-          <div className="mt-14 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div className="mt-12 pt-6 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
             <p>
               © {new Date().getFullYear()}{" "}
               <span className="text-[#FF7A66] font-semibold">
@@ -156,7 +147,7 @@ export default function Footer() {
               </span>
               . All rights reserved.
             </p>
-            <div className="flex items-center gap-4 text-xs">
+            <div className="flex items-center gap-3">
               <Link
                 href="/privacy"
                 className="hover:text-foreground transition-colors"
@@ -173,6 +164,13 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Giant Bottom Email Watermark */}
+        {/* <div className="w-full text-center pt-8 pb-4 overflow-hidden select-none pointer-events-none">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold text-[#FF7A66]/15 dark:text-[#FF7A66]/10 tracking-tight lowercase">
+            mdramjan.ict@gmail.com
+          </h1>
+        </div> */}
       </Container>
     </footer>
   );

@@ -5,6 +5,7 @@ export interface ClientProject {
   category: string;
   status: "Ongoing" | "Completed" | "Upcoming";
   image: string;
+  images?: string[];
   description: string;
   overview: string;
   developersNote: string;
@@ -25,6 +26,7 @@ export interface LearningProject {
   title: string;
   category: "React.js" | "MERN" | "Next.js";
   image: string;
+  images?: string[];
   description: string;
   overview: string;
   keyFeatures: string[];
@@ -45,6 +47,15 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     category: "AI & Automation",
     status: "Ongoing",
     image: "/assets/images/1.png",
+    images: [
+      "/assets/images/1.png",
+      "/assets/images/6.png",
+      "/assets/images/7.png",
+      "/assets/images/8.png",
+      "/assets/images/9.png",
+      "/assets/images/10.png",
+      "/assets/images/11.png",
+    ],
     description:
       "An AI-powered multi-channel customer engagement platform enabling businesses to interact via Voice, WhatsApp, Email, and Web with Agentic AI and CRM automation.",
     overview:
@@ -93,6 +104,12 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     category: "Healthcare",
     status: "Ongoing",
     image: "/assets/doctor/home.png",
+    images: [
+      "/assets/doctor/home.png",
+      "/assets/doctor/admin.png",
+      "/assets/images/12.png",
+      "/assets/images/13.png",
+    ],
     description:
       "A zero-commission healthcare platform connecting patients with doctors, hospitals, laboratories, and pharmacies.",
     overview:
@@ -141,6 +158,11 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     category: "Transportation",
     status: "Upcoming",
     image: "/assets/images/2.png",
+    images: [
+      "/assets/images/2.png",
+      "/assets/images/14.png",
+      "/assets/images/15.png",
+    ],
     description:
       "A zero-commission ride-sharing and delivery platform with a subscription model for drivers.",
     overview:
@@ -189,6 +211,11 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     category: "Ecommerce",
     status: "Completed",
     image: "/assets/images/3.png",
+    images: [
+      "/assets/images/3.png",
+      "/assets/images/16.png",
+      "/assets/images/17.webp",
+    ],
     description:
       "A modern e-commerce marketplace specializing in tactical gear, apparel, and specialized outdoor equipment.",
     overview:
@@ -237,6 +264,12 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     category: "Ecommerce",
     status: "Completed",
     image: "/assets/shopper/home1.png",
+    images: [
+      "/assets/shopper/home1.png",
+      "/assets/shopper/home2.png",
+      "/assets/shopper/cart.png",
+      "/assets/shopper/admin.png",
+    ],
     description:
       "A clothing ecommerce website with over 30,000 users, featuring product catalog, user accounts, and secure checkout.",
     overview:
