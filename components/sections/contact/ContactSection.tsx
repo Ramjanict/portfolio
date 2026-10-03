@@ -16,14 +16,14 @@ const CONTACT_INFO = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+91 7060741633",
-    href: "tel:+917060741633",
+    value: "+8801303488984",
+    href: "tel:+8801303488984",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "Bihar, India",
-    href: "https://maps.google.com/?q=Bihar,India",
+    value: "Mirpur-2, Dhaka 1216, Bangladesh",
+    href: "https://maps.google.com/?q=Mirpur-2,Dhaka,Bangladesh",
   },
 ];
 

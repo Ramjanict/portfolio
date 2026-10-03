@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { AlertCircle, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { useState, useTransition } from "react";
 
 export default function ContactForm() {
@@ -11,18 +11,40 @@ export default function ContactForm() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
 
-    startTransition(() => {
-      // Simulate form submission
-      setTimeout(() => {
-        setSubmitted(true);
-        setFormData({ name: "", email: "", message: "" });
-      }, 300);
+    setErrorMessage(null);
+
+    startTransition(async () => {
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          setSubmitted(true);
+          setFormData({ name: "", email: "", message: "" });
+        } else {
+          setErrorMessage(
+            result.error || "Failed to send message. Please try again."
+          );
+        }
+      } catch (err) {
+        setErrorMessage(
+          "Network error. Please check your connection and try again."
+        );
+      }
     });
   };
 
@@ -42,18 +64,32 @@ export default function ContactForm() {
               Thank You for Reaching Out!
             </h3>
             <p className="text-sm text-muted-foreground max-w-sm mx-auto">
-              Your message has been received. I will review it and get back to
-              you as soon as possible.
+              Your message has been sent directly to my email. I will review it
+              and get back to you shortly.
             </p>
             <button
-              onClick={() => setSubmitted(false)}
-              className="mt-4 px-6 py-2 rounded-full text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground transition-all"
+              onClick={() => {
+                setSubmitted(false);
+                setErrorMessage(null);
+              }}
+              className="mt-4 px-6 py-2 rounded-full text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground transition-all cursor-pointer"
             >
               Send Another Message
             </button>
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
+            {errorMessage && (
+              <motion.div
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-xs flex items-center gap-2"
+              >
+                <AlertCircle className="h-4 w-4 shrink-0" />
+                <span>{errorMessage}</span>
+              </motion.div>
+            )}
+
             <div>
               <label
                 htmlFor="name"
@@ -109,7 +145,7 @@ export default function ContactForm() {
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, message: e.target.value }))
                 }
-                placeholder="ex- hi , i wana to build something...."
+                placeholder="ex- hi , i wanna build something..."
                 className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-main/50 focus:border-main transition-all resize-y"
               />
             </div>
@@ -118,12 +154,21 @@ export default function ContactForm() {
               <motion.button
                 type="submit"
                 disabled={isPending}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                className="group inline-flex items-center justify-center gap-2 bg-main hover:bg-[#e05a3c] text-white font-semibold py-3 px-8 rounded-full text-sm shadow-md hover:shadow-lg transition-all disabled:opacity-50"
+                whileHover={{ scale: isPending ? 1 : 1.03 }}
+                whileTap={{ scale: isPending ? 1 : 0.97 }}
+                className="group inline-flex items-center justify-center gap-2 bg-main hover:bg-[#e05a3c] text-white font-semibold py-3 px-8 rounded-full text-sm shadow-md hover:shadow-lg transition-all disabled:opacity-50 cursor-pointer"
               >
-                <span>{isPending ? "Sending..." : "Lets Talk"}</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                {isPending ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>Lets Talk</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </>
+                )}
               </motion.button>
             </div>
           </form>

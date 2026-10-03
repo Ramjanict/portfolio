@@ -1,6 +1,6 @@
-import CommonHeader from "@/components/shared/CommonHeader";
 import CommonSpace from "@/components/shared/CommonSpace";
 import Container from "@/components/shared/Container";
+import SectionHeader from "@/components/shared/SectionHeader";
 import { BLOG_POSTS } from "@/data/blogs";
 import agentProdImg from "@/public/images/agent-production.webp";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
@@ -183,218 +183,219 @@ export default function BlogListSection() {
     <section className="w-full bg-background transition-colors">
       <CommonSpace>
         <Container>
-        {/* Main Header Centered */}
-        <div className="flex justify-center mb-12 text-center">
-          <CommonHeader
-            title="Blog"
-            description="Insights on my technical journey, deep-dives into modern frontend frameworks, backend architecture, and lessons learned from building web products."
-          />
-        </div>
-
-        {/* ─── Featured Post Section ─── */}
-        <div className="mb-16">
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-            <span className="text-main font-mono">⭐</span> Featured Post
-          </h2>
-
-          <Link
-            href={`/blog/${featured.slug}`}
-            className="bg-card border border-border/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-main/50 transition-all duration-300 grid md:grid-cols-12 gap-0 group block"
-          >
-            {/* Featured Image Thumbnail (Left 6 cols) */}
-            <div className="md:col-span-6 relative h-64 sm:h-80 md:h-auto min-h-[300px] overflow-hidden bg-muted">
-              <Image
-                src={agentProdImg}
-                alt={featured.title}
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute top-4 left-4 flex items-center gap-2">
-                <span className="text-[10px] uppercase font-mono font-bold tracking-wider px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/10">
-                  Featured Deep Dive
-                </span>
-                <span className="h-2 w-2 rounded-full bg-main animate-ping" />
-              </div>
-            </div>
-
-            {/* Featured Details (Right 6 cols) */}
-            <div className="md:col-span-6 p-6 sm:p-10 flex flex-col justify-between bg-card">
-              <div>
-                <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
-                  <div className="flex items-center gap-1">
-                    <Calendar className="h-4 w-4 text-main" />
-                    <span>{featured.date}</span>
-                  </div>
-                  <span>•</span>
-                  <div className="flex items-center gap-1">
-                    <Clock className="h-4 w-4 text-main" />
-                    <span>{featured.readTime}</span>
-                  </div>
-                </div>
-
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-foreground mb-4 leading-snug group-hover:text-main transition-colors">
-                  {featured.title}
-                </h3>
-
-                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
-                  {featured.excerpt}
-                </p>
-              </div>
-
-              <div>
-                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-main group-hover:underline">
-                  <span>Read Post</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </div>
-            </div>
-          </Link>
-        </div>
-
-        {/* ─── 2026 Archive ─── */}
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-8 pb-3 border-b border-border/80">
-            <h2 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
-              2026
-            </h2>
-            <span className="text-xs font-bold text-main bg-main/10 px-2.5 py-0.5 rounded-full">
-              {ARTICLES_2026.length} Articles
-            </span>
+          {/* Main Header Centered */}
+          <div className="flex justify-center mb-12 text-center">
+            <SectionHeader
+              subtitle="Insights & Tutorials"
+              title="Blog"
+              description="Explore my technical articles, deep dives, and guides on React, Next.js, Node.js, NestJS, PostgreSQL, and Docker-based deployments."
+            />
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ARTICLES_2026.map((article) => (
-              <Link
-                key={article.id}
-                href={`/blog/${article.slug}`}
-                className="bg-card border border-border/80 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-main/50 transition-all duration-300 group block"
-              >
+          {/* ─── Featured Post Section ─── */}
+          <div className="mb-16">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+              <span className="text-main font-mono">⭐</span> Featured Post
+            </h2>
+
+            <Link
+              href={`/blog/${featured.slug}`}
+              className="bg-card border border-border/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-main/50 transition-all duration-300 grid md:grid-cols-12 gap-0 group block"
+            >
+              {/* Featured Image Thumbnail (Left 6 cols) */}
+              <div className="md:col-span-6 relative h-64 sm:h-80 md:h-auto min-h-[300px] overflow-hidden bg-muted">
+                <Image
+                  src={agentProdImg}
+                  alt={featured.title}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <span className="text-[10px] uppercase font-mono font-bold tracking-wider px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/10">
+                    Featured Deep Dive
+                  </span>
+                  <span className="h-2 w-2 rounded-full bg-main animate-ping" />
+                </div>
+              </div>
+
+              {/* Featured Details (Right 6 cols) */}
+              <div className="md:col-span-6 p-6 sm:p-10 flex flex-col justify-between bg-card">
                 <div>
-                  {/* Article Thumbnail Image */}
-                  <div className="relative h-48 w-full overflow-hidden bg-muted">
-                    <Image
-                      src={article.img}
-                      alt={article.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[10px] font-mono font-semibold tracking-wider px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/10">
-                        {article.categoryTag}
-                      </span>
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4 text-main" />
+                      <span>{featured.date}</span>
+                    </div>
+                    <span>•</span>
+                    <div className="flex items-center gap-1">
+                      <Clock className="h-4 w-4 text-main" />
+                      <span>{featured.readTime}</span>
                     </div>
                   </div>
 
-                  {/* Card Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5 text-main" />
-                        <span>{article.date}</span>
-                      </div>
-                      <span>•</span>
-                      <div className="flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5 text-main" />
-                        <span>{article.readTime}</span>
-                      </div>
-                    </div>
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-foreground mb-4 leading-snug group-hover:text-main transition-colors">
+                    {featured.title}
+                  </h3>
 
-                    <h3 className="font-bold text-base text-foreground leading-snug mb-3 group-hover:text-main transition-colors line-clamp-2">
-                      {article.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                      {article.excerpt}
-                    </p>
-                  </div>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
+                    {featured.excerpt}
+                  </p>
                 </div>
 
-                <div className="px-6 pb-6 pt-2">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-main group-hover:underline">
+                <div>
+                  <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-main group-hover:underline">
                     <span>Read Post</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* ─── 2025 Archive ─── */}
-        <div>
-          <div className="flex items-center gap-3 mb-8 pb-3 border-b border-border/80">
-            <h2 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
-              2025
-            </h2>
-            <span className="text-xs font-bold text-main bg-main/10 px-2.5 py-0.5 rounded-full">
-              {ARTICLES_2025.length} Articles
-            </span>
+              </div>
+            </Link>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ARTICLES_2025.map((article) => (
-              <Link
-                key={article.id}
-                href={`/blog/${article.slug}`}
-                className="bg-card border border-border/80 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-main/50 transition-all duration-300 group block"
-              >
-                <div>
-                  {/* Article Thumbnail Image */}
-                  <div className="relative h-48 w-full overflow-hidden bg-muted">
-                    <Image
-                      src={article.img}
-                      alt={article.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[10px] font-mono font-semibold tracking-wider px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/10">
-                        {article.categoryTag}
-                      </span>
-                    </div>
-                  </div>
+          {/* ─── 2026 Archive ─── */}
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-8 pb-3 border-b border-border/80">
+              <h2 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
+                2026
+              </h2>
+              <span className="text-xs font-bold text-main bg-main/10 px-2.5 py-0.5 rounded-full">
+                {ARTICLES_2026.length} Articles
+              </span>
+            </div>
 
-                  {/* Card Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5 text-main" />
-                        <span>{article.date}</span>
-                      </div>
-                      <span>•</span>
-                      <div className="flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5 text-main" />
-                        <span>{article.readTime}</span>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {ARTICLES_2026.map((article) => (
+                <Link
+                  key={article.id}
+                  href={`/blog/${article.slug}`}
+                  className="bg-card border border-border/80 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-main/50 transition-all duration-300 group block"
+                >
+                  <div>
+                    {/* Article Thumbnail Image */}
+                    <div className="relative h-48 w-full overflow-hidden bg-muted">
+                      <Image
+                        src={article.img}
+                        alt={article.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute top-3 left-3">
+                        <span className="text-[10px] font-mono font-semibold tracking-wider px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/10">
+                          {article.categoryTag}
+                        </span>
                       </div>
                     </div>
 
-                    <h3 className="font-bold text-base text-foreground leading-snug mb-3 group-hover:text-main transition-colors line-clamp-2">
-                      {article.title}
-                    </h3>
+                    {/* Card Content */}
+                    <div className="p-6">
+                      <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="h-3.5 w-3.5 text-main" />
+                          <span>{article.date}</span>
+                        </div>
+                        <span>•</span>
+                        <div className="flex items-center gap-1">
+                          <Clock className="h-3.5 w-3.5 text-main" />
+                          <span>{article.readTime}</span>
+                        </div>
+                      </div>
 
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                      {article.excerpt}
-                    </p>
+                      <h3 className="font-bold text-base text-foreground leading-snug mb-3 group-hover:text-main transition-colors line-clamp-2">
+                        {article.title}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                        {article.excerpt}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="px-6 pb-6 pt-2">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-main group-hover:underline">
-                    <span>Read Post</span>
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </div>
-              </Link>
-            ))}
+                  <div className="px-6 pb-6 pt-2">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-main group-hover:underline">
+                      <span>Read Post</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+
+          {/* ─── 2025 Archive ─── */}
+          <div>
+            <div className="flex items-center gap-3 mb-8 pb-3 border-b border-border/80">
+              <h2 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
+                2025
+              </h2>
+              <span className="text-xs font-bold text-main bg-main/10 px-2.5 py-0.5 rounded-full">
+                {ARTICLES_2025.length} Articles
+              </span>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {ARTICLES_2025.map((article) => (
+                <Link
+                  key={article.id}
+                  href={`/blog/${article.slug}`}
+                  className="bg-card border border-border/80 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-main/50 transition-all duration-300 group block"
+                >
+                  <div>
+                    {/* Article Thumbnail Image */}
+                    <div className="relative h-48 w-full overflow-hidden bg-muted">
+                      <Image
+                        src={article.img}
+                        alt={article.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute top-3 left-3">
+                        <span className="text-[10px] font-mono font-semibold tracking-wider px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/10">
+                          {article.categoryTag}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Card Content */}
+                    <div className="p-6">
+                      <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                        <div className="flex items-center gap-1">
+                          <Calendar className="h-3.5 w-3.5 text-main" />
+                          <span>{article.date}</span>
+                        </div>
+                        <span>•</span>
+                        <div className="flex items-center gap-1">
+                          <Clock className="h-3.5 w-3.5 text-main" />
+                          <span>{article.readTime}</span>
+                        </div>
+                      </div>
+
+                      <h3 className="font-bold text-base text-foreground leading-snug mb-3 group-hover:text-main transition-colors line-clamp-2">
+                        {article.title}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                        {article.excerpt}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="px-6 pb-6 pt-2">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-main group-hover:underline">
+                      <span>Read Post</span>
+                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </Container>
       </CommonSpace>
     </section>
