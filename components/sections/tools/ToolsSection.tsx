@@ -1,4 +1,6 @@
 import ToolActionBtn from "@/components/client/ToolActionBtn";
+import CommonSpace from "@/components/shared/CommonSpace";
+import Container from "@/components/shared/Container";
 import { Image as ImageIcon, Sparkles } from "lucide-react";
 import Link from "next/link";
 
@@ -25,27 +27,35 @@ const TOOLS: ToolItem[] = [
 
 export default function ToolsSection() {
   return (
-    <section className="w-full py-16 md:py-24 bg-background transition-colors min-h-[70vh]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-xs sm:text-sm font-semibold tracking-wider text-main mb-3">
-            — Productivity & Creativity —
-          </p>
+    <section className="w-full bg-background transition-colors min-h-[70vh]">
+      <CommonSpace>
+        <Container>
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            {/* Subtitle with side lines */}
+            <div className="flex items-center justify-center gap-3 sm:gap-4 mb-4">
+              <span className="w-12 sm:w-16 h-[1.5px] bg-main/70 rounded-full" />
+              <span className="text-sm sm:text-base font-medium text-main">
+                Productivity & Creativity
+              </span>
+              <span className="w-12 sm:w-16 h-[1.5px] bg-main/70 rounded-full" />
+            </div>
 
-          <div className="inline-flex items-center justify-center gap-2 mb-4">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-              Tools
-            </h1>
-            <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 text-main" />
+            {/* Main Title with Sparkle */}
+            <div className="relative inline-block my-2">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight">
+                Tools
+              </h1>
+              <Sparkles className="h-7 w-7 sm:h-9 sm:w-9 text-main absolute -top-3 -right-8 sm:-right-10 stroke-[2]" />
+            </div>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-4 sm:mt-6 max-w-2xl mx-auto">
+              Discover a collection of powerful web tools designed to enhance
+              your productivity and creativity. Each tool is built with modern
+              technology and user experience in mind.
+            </p>
           </div>
-
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-2">
-            Discover a collection of powerful web tools designed to enhance your
-            productivity and creativity. Each tool is built with modern
-            technology and user experience in mind.
-          </p>
-        </div>
 
         {/* Tools Grid */}
         <div className="max-w-md mx-auto mb-16">
@@ -109,7 +119,8 @@ export default function ToolsSection() {
             </Link>
           </p>
         </div>
-      </div>
+        </Container>
+      </CommonSpace>
     </section>
   );
 }
