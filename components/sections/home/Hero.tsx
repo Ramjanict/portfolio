@@ -13,7 +13,7 @@ interface HeroProps {
 }
 
 export default function Hero({
-  yearsExperience = 3,
+  yearsExperience = 2,
   happyClients = 18,
   finishedProjects = 38,
 }: HeroProps) {

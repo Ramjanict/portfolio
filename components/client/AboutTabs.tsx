@@ -195,7 +195,7 @@ export default function AboutTabs() {
       <div className="flex flex-col">
         {/* Navigation Tabs */}
         <div className="flex justify-center lg:justify-start mb-8">
-          <div className="inline-flex items-center bg-white dark:bg-[#212131] border border-[#FBDEDA] dark:border-[#212131] rounded-full p-1 gap-1 shadow-xs">
+          <div className="inline-flex items-center bg-white dark:bg-[#161625] border border-[#FBDEDA] dark:border-[#262638] rounded-full p-1 gap-1 shadow-xs">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
@@ -203,7 +203,7 @@ export default function AboutTabs() {
                 className={`px-6 sm:px-8 py-3 rounded-full text-xs sm:text-base font-semibold transition-all cursor-pointer ${
                   activeTab === tab.key
                     ? "bg-main text-white shadow-md"
-                    : "text-muted-foreground hover:text-foreground"
+                    : "text-muted-foreground dark:text-[#a0a0b8] hover:text-foreground dark:hover:text-white"
                 }`}
               >
                 {tab.label}
@@ -324,20 +324,20 @@ export default function AboutTabs() {
               </h3>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-4 sm:gap-5">
               {SKILL_CATEGORIES.map((cat, idx) => (
                 <div
                   key={idx}
-                  className="bg-card/60 dark:bg-white/5 border border-[#FDE2D2] dark:border-white/10 rounded-xl p-4 shadow-2xs hover:border-main/50 transition-all"
+                  className="bg-white dark:bg-[#1a1a2b] border border-[#FDE2D2]/80 dark:border-[#28283d] rounded-2xl p-5 sm:p-6 shadow-xs hover:border-main/40 dark:hover:border-main/50 transition-all duration-300"
                 >
-                  <h4 className="text-sm font-bold text-main mb-2.5">
+                  <h4 className="text-base sm:text-lg font-bold text-main mb-3.5 tracking-tight">
                     {cat.category}
                   </h4>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-2 sm:gap-2.5">
                     {cat.skills.map((skill, sIdx) => (
                       <span
                         key={sIdx}
-                        className="bg-muted/80 dark:bg-white/10 text-foreground text-xs font-medium px-2.5 py-1 rounded-md border border-border/40"
+                        className="bg-[#f4f4f8] dark:bg-[#252538] text-[#222233] dark:text-[#e4e4f0] text-xs sm:text-sm font-semibold px-4 py-2 rounded-full border border-black/[0.04] dark:border-white/[0.06] hover:bg-[#eaeaf2] dark:hover:bg-[#2e2e46] transition-all duration-200"
                       >
                         {skill}
                       </span>

@@ -10,7 +10,7 @@ interface HeroVisualProps {
 }
 
 export default function HeroVisual({
-  yearsExperience = 3,
+  yearsExperience = 2,
   happyClients = 18,
   finishedProjects = 38,
 }: HeroVisualProps) {
