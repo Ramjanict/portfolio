@@ -1,5 +1,9 @@
+import CommonHeader from "@/components/shared/CommonHeader";
+import CommonSpace from "@/components/shared/CommonSpace";
 import { BLOG_POSTS } from "@/data/blogs";
-import { ArrowRight, Calendar, Clock, Sparkles } from "lucide-react";
+import agentProdImg from "@/public/images/agent-production.webp";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface Article {
@@ -9,9 +13,8 @@ interface Article {
   excerpt: string;
   date: string;
   readTime: string;
-  bannerTitle: string;
-  bannerSub: string;
-  bannerGradient: string;
+  img: string | StaticImageData;
+  categoryTag: string;
   year: "2026" | "2025";
 }
 
@@ -23,10 +26,9 @@ const ARTICLES_2026: Article[] = [
     excerpt:
       "An AI agent is not just an LLM with tools. It is a distributed system with an LLM inside it. A practical guide to building production-grade AI agents — from idempotency and circuit breakers to durable state and evaluation.",
     date: "2026-08-31",
-    readTime: "15 Minutes",
-    bannerTitle: "YOUR AI AGENT WORKS IN DEMO",
-    bannerSub: "DIES IN PROD: From Demos to Reliable Systems",
-    bannerGradient: "from-rose-950 via-zinc-900 to-black text-rose-300",
+    readTime: "15 Min Read",
+    img: agentProdImg,
+    categoryTag: "AI Engineering",
     year: "2026",
   },
   {
@@ -37,10 +39,9 @@ const ARTICLES_2026: Article[] = [
     excerpt:
       "I host multiple projects, APIs, and side hustles on a single Hostinger VPS for less than the cost of a Netflix subscription. Here's why you need one too — and how to set it up right.",
     date: "2026-08-30",
-    readTime: "10 Minutes",
-    bannerTitle: "VPS CHANGED EVERYTHING",
-    bannerSub: "Save ₹1700+/mo with Hostinger VPS",
-    bannerGradient: "from-indigo-950 via-zinc-900 to-black text-indigo-300",
+    readTime: "10 Min Read",
+    img: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "DevOps & Cloud",
     year: "2026",
   },
   {
@@ -51,10 +52,9 @@ const ARTICLES_2026: Article[] = [
     excerpt:
       "A battle-tested engineering guide to RAG, its real failures in production, and why Agentic RAG is the architecture that actually holds up — from someone who's built it end-to-end.",
     date: "2026-08-27",
-    readTime: "11 Minutes",
-    bannerTitle: "FROM RAG TO AGENTIC RAG",
-    bannerSub: "Production AI Systems That Actually Scale",
-    bannerGradient: "from-teal-950 via-zinc-900 to-black text-teal-300",
+    readTime: "11 Min Read",
+    img: "https://images.unsplash.com/photo-1677442136019-21780efad99a?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "GenAI & RAG",
     year: "2026",
   },
   {
@@ -65,10 +65,9 @@ const ARTICLES_2026: Article[] = [
     excerpt:
       "A real-world DevOps playbook from a full stack engineer who owns infra end-to-end — EC2, ECR, Terraform, GitHub Actions, Nginx, Auto Scaling, and Grafana observability at growth-stage scale.",
     date: "2026-07-15",
-    readTime: "14 Minutes",
-    bannerTitle: "HOW I OWN DEVOPS AT A STARTUP",
-    bannerSub: "AWS, Docker, CI/CD, and 99.9% Uptime",
-    bannerGradient: "from-amber-950 via-zinc-900 to-black text-amber-300",
+    readTime: "14 Min Read",
+    img: "https://images.unsplash.com/photo-1667372335854-c522b0450531?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "DevOps & Infrastructure",
     year: "2026",
   },
 ];
@@ -82,10 +81,9 @@ const ARTICLES_2025: Article[] = [
     excerpt:
       "A complete beginner-friendly guide to using multiple Git accounts (personal + work) on one laptop, with SSH & GPG verification — for Windows, macOS, and Linux.",
     date: "2025-10-04",
-    readTime: "7 Minutes",
-    bannerTitle: "MULTIPLE GIT ACCOUNTS",
-    bannerSub: "Personal + Work on Same Laptop",
-    bannerGradient: "from-blue-950 via-slate-900 to-black text-blue-300",
+    readTime: "7 Min Read",
+    img: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "Git & Developer Workflow",
     year: "2025",
   },
   {
@@ -95,10 +93,9 @@ const ARTICLES_2025: Article[] = [
     excerpt:
       "A complete beginner-friendly guide to publishing your React Native Expo app on the Apple App Store using EAS Build and Submit.",
     date: "2025-06-22",
-    readTime: "9 Minutes",
-    bannerTitle: "PUBLISH AN IOS APP",
-    bannerSub: "App Store using Expo EAS",
-    bannerGradient: "from-yellow-950 via-neutral-900 to-black text-yellow-300",
+    readTime: "9 Min Read",
+    img: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "Mobile App Development",
     year: "2025",
   },
   {
@@ -109,10 +106,9 @@ const ARTICLES_2025: Article[] = [
     excerpt:
       "Choosing a database is like choosing your co-founder — make the wrong choice, and you'll cry in a dark room at 2 AM. Here's why MongoDB won my heart over PostgreSQL for early-stage products.",
     date: "2025-06-16",
-    readTime: "8 Minutes",
-    bannerTitle: "DATABASE SHOWDOWN",
-    bannerSub: "MongoDB vs PostgreSQL",
-    bannerGradient: "from-emerald-950 via-zinc-900 to-black text-emerald-300",
+    readTime: "8 Min Read",
+    img: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "Databases & Backend",
     year: "2025",
   },
   {
@@ -122,10 +118,9 @@ const ARTICLES_2025: Article[] = [
     excerpt:
       "A detailed comparison between WebSocket and WebRTC with real-world use cases, pros, cons, and how to choose the right one for your application.",
     date: "2025-05-25",
-    readTime: "8 Minutes",
-    bannerTitle: "WEBSOCKET VS WEBRTC",
-    bannerSub: "Real-time communication showdown",
-    bannerGradient: "from-cyan-950 via-slate-900 to-black text-cyan-300",
+    readTime: "8 Min Read",
+    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "Real-time Protocols",
     year: "2025",
   },
   {
@@ -136,10 +131,9 @@ const ARTICLES_2025: Article[] = [
     excerpt:
       "A developer-friendly and detailed walkthrough of the top 30 system design concepts every backend wizard and frontend ninja should understand. Learn it, love it, use it.",
     date: "2025-05-13",
-    readTime: "12 Minutes",
-    bannerTitle: "30 SYSTEM DESIGN CONCEPTS",
-    bannerSub: "Essential guide for high-throughput apps",
-    bannerGradient: "from-red-950 via-zinc-900 to-black text-red-300",
+    readTime: "12 Min Read",
+    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "System Architecture",
     year: "2025",
   },
   {
@@ -149,10 +143,9 @@ const ARTICLES_2025: Article[] = [
     excerpt:
       "Learn how to convert an .aab file to an .apk for testing on Android devices before uploading to the Play Store.",
     date: "2025-02-15",
-    readTime: "2 Minutes",
-    bannerTitle: "HOW TO CONVERT .AAB TO .APK",
-    bannerSub: "Windows & macOS developer guide",
-    bannerGradient: "from-sky-950 via-zinc-900 to-black text-sky-300",
+    readTime: "2 Min Read",
+    img: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "Android Development",
     year: "2025",
   },
   {
@@ -162,10 +155,9 @@ const ARTICLES_2025: Article[] = [
     excerpt:
       "A beginner-friendly, hilarious guide to installing an SSL certificate using Let's Encrypt and Certbot on Nginx. No more 'Not Secure' warnings!",
     date: "2025-02-13",
-    readTime: "4 Minutes",
-    bannerTitle: "SECURE YOUR WEBSITE WITH SSL",
-    bannerSub: "Let's Encrypt & Certbot on Nginx",
-    bannerGradient: "from-teal-950 via-zinc-900 to-black text-teal-300",
+    readTime: "4 Min Read",
+    img: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "Security & Web Dev",
     year: "2025",
   },
   {
@@ -176,10 +168,9 @@ const ARTICLES_2025: Article[] = [
     excerpt:
       "Learn how to generate a production-ready APK file with Expo and submit it to the Google Play Store.",
     date: "2025-02-05",
-    readTime: "5 Minutes",
-    bannerTitle: "CREATE PRODUCTION APK",
-    bannerSub: "Expo to Google Play Store submission",
-    bannerGradient: "from-purple-950 via-zinc-900 to-black text-purple-300",
+    readTime: "5 Min Read",
+    img: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=600&auto=format&fit=crop&q=80",
+    categoryTag: "Mobile Publishing",
     year: "2025",
   },
 ];
@@ -188,100 +179,72 @@ export default function BlogListSection() {
   const featured = BLOG_POSTS[0];
 
   return (
-    <section className="w-full py-16 md:py-24 bg-background transition-colors">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-xs sm:text-sm font-semibold tracking-wider text-main mb-3">
-            — Insights & Tutorials —
-          </p>
-
-          <div className="inline-flex items-center justify-center gap-2 mb-4">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground tracking-tight">
-              Blog
-            </h1>
-            <Sparkles className="h-6 w-6 sm:h-8 sm:w-8 text-main" />
-          </div>
-
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mt-2">
-            Explore my technical articles, deep dives, and tutorials on Agentic
-            AI, LLM & RAG systems, backend architectures, and cloud DevOps.
-          </p>
+    <section className="w-full py-10 bg-background transition-colors">
+      <CommonSpace>
+        {/* Main Header Centered */}
+        <div className="flex justify-center mb-12 text-center">
+          <CommonHeader
+            title="Blog"
+            description="Insights on my technical journey, deep-dives into modern frontend frameworks, backend architecture, and lessons learned from building web products."
+          />
         </div>
 
-        {/* Featured Post Header & Card */}
-        <div className="mb-20">
-          <div className="flex items-center gap-2 mb-6">
-            <span className="text-lg">⭐</span>
-            <h2 className="text-lg sm:text-xl font-extrabold text-foreground tracking-tight">
-              Featured Post
-            </h2>
-          </div>
+        {/* ─── Featured Post Section ─── */}
+        <div className="mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+            <span className="text-main font-mono">⭐</span> Featured Post
+          </h2>
 
           <Link
             href={`/blog/${featured.slug}`}
             className="bg-card border border-border/80 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:border-main/50 transition-all duration-300 grid md:grid-cols-12 gap-0 group block"
           >
-            {/* Left Graphic Banner (6 cols) */}
-            <div className="md:col-span-6 p-8 sm:p-10 bg-gradient-to-br from-rose-950 via-zinc-900 to-black text-white flex flex-col justify-between relative overflow-hidden min-h-[260px]">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold tracking-widest text-rose-300 uppercase px-3 py-1 rounded-full bg-white/10">
+            {/* Featured Image Thumbnail (Left 6 cols) */}
+            <div className="md:col-span-6 relative h-64 sm:h-80 md:h-auto min-h-[300px] overflow-hidden bg-muted">
+              <Image
+                src={agentProdImg}
+                alt={featured.title}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute top-4 left-4 flex items-center gap-2">
+                <span className="text-[10px] uppercase font-mono font-bold tracking-wider px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/10">
                   Featured Deep Dive
                 </span>
-                <span className="h-2.5 w-2.5 rounded-full bg-main animate-ping" />
-              </div>
-
-              <div className="my-6">
-                <h3 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight mb-2 text-white">
-                  YOUR AI AGENT WORKS IN DEMO.
-                </h3>
-                <h3 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight text-main">
-                  DIES IN PROD
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-300 mt-3 font-mono">
-                  Lessons Learned Building Production-Ready AI Agents
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-2 text-[10px] font-mono text-zinc-400">
-                <span className="bg-white/10 px-2 py-0.5 rounded">
-                  Reliability
-                </span>
-                <span className="bg-white/10 px-2 py-0.5 rounded">
-                  State & Recovery
-                </span>
-                <span className="bg-white/10 px-2 py-0.5 rounded">
-                  Idempotency
-                </span>
-                <span className="bg-white/10 px-2 py-0.5 rounded">
-                  Evaluation
-                </span>
+                <span className="h-2 w-2 rounded-full bg-main animate-ping" />
               </div>
             </div>
 
-            {/* Right Content (6 cols) */}
-            <div className="md:col-span-6 p-8 sm:p-10 flex flex-col justify-between">
+            {/* Featured Details (Right 6 cols) */}
+            <div className="md:col-span-6 p-6 sm:p-10 flex flex-col justify-between bg-card">
               <div>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground mb-4">
-                  <Calendar className="h-4 w-4 text-main" />
-                  <span>{featured.date}</span>
+                <div className="flex items-center gap-3 text-xs text-muted-foreground mb-4">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-4 w-4 text-main" />
+                    <span>{featured.date}</span>
+                  </div>
                   <span>•</span>
-                  <Clock className="h-4 w-4 text-main" />
-                  <span>{featured.readTime}</span>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-4 w-4 text-main" />
+                    <span>{featured.readTime}</span>
+                  </div>
                 </div>
 
-                <h3 className="text-xl sm:text-2xl font-extrabold text-foreground mb-4 leading-snug group-hover:text-main transition-colors">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-foreground mb-4 leading-snug group-hover:text-main transition-colors">
                   {featured.title}
                 </h3>
 
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-6 line-clamp-3">
                   {featured.excerpt}
                 </p>
               </div>
 
               <div>
-                <span className="inline-flex items-center gap-1.5 text-sm font-bold text-main group-hover:underline">
-                  <span>Read Article</span>
+                <span className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-main group-hover:underline">
+                  <span>Read Post</span>
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
@@ -289,8 +252,8 @@ export default function BlogListSection() {
           </Link>
         </div>
 
-        {/* 2026 Archive */}
-        <div className="mb-20">
+        {/* ─── 2026 Archive ─── */}
+        <div className="mb-16">
           <div className="flex items-center gap-3 mb-8 pb-3 border-b border-border/80">
             <h2 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
               2026
@@ -308,33 +271,33 @@ export default function BlogListSection() {
                 className="bg-card border border-border/80 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-main/50 transition-all duration-300 group block"
               >
                 <div>
-                  {/* Banner */}
-                  <div
-                    className={`p-6 h-40 bg-gradient-to-br ${article.bannerGradient} flex flex-col justify-between relative overflow-hidden`}
-                  >
-                    <span className="text-[10px] uppercase font-mono tracking-wider px-2 py-0.5 rounded bg-white/10 text-white/90 self-start">
-                      Engineering
-                    </span>
-                    <div>
-                      <h4 className="text-base font-black tracking-tight leading-tight text-white mb-1">
-                        {article.bannerTitle}
-                      </h4>
-                      <p className="text-[11px] text-white/70 line-clamp-1">
-                        {article.bannerSub}
-                      </p>
+                  {/* Article Thumbnail Image */}
+                  <div className="relative h-48 w-full overflow-hidden bg-muted">
+                    <Image
+                      src={article.img}
+                      alt={article.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <span className="text-[10px] font-mono font-semibold tracking-wider px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/10">
+                        {article.categoryTag}
+                      </span>
                     </div>
                   </div>
 
-                  {/* Content */}
+                  {/* Card Content */}
                   <div className="p-6">
                     <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
                       <div className="flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5" />
+                        <Calendar className="h-3.5 w-3.5 text-main" />
                         <span>{article.date}</span>
                       </div>
                       <span>•</span>
                       <div className="flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5" />
+                        <Clock className="h-3.5 w-3.5 text-main" />
                         <span>{article.readTime}</span>
                       </div>
                     </div>
@@ -351,7 +314,7 @@ export default function BlogListSection() {
 
                 <div className="px-6 pb-6 pt-2">
                   <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-main group-hover:underline">
-                    <span>Read More</span>
+                    <span>Read Post</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
@@ -360,7 +323,7 @@ export default function BlogListSection() {
           </div>
         </div>
 
-        {/* 2025 Archive */}
+        {/* ─── 2025 Archive ─── */}
         <div>
           <div className="flex items-center gap-3 mb-8 pb-3 border-b border-border/80">
             <h2 className="text-2xl sm:text-3xl font-black text-foreground tracking-tight">
@@ -379,33 +342,33 @@ export default function BlogListSection() {
                 className="bg-card border border-border/80 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-xl hover:border-main/50 transition-all duration-300 group block"
               >
                 <div>
-                  {/* Banner */}
-                  <div
-                    className={`p-6 h-40 bg-gradient-to-br ${article.bannerGradient} flex flex-col justify-between relative overflow-hidden`}
-                  >
-                    <span className="text-[10px] uppercase font-mono tracking-wider px-2 py-0.5 rounded bg-white/10 text-white/90 self-start">
-                      Guide & Tutorial
-                    </span>
-                    <div>
-                      <h4 className="text-base font-black tracking-tight leading-tight text-white mb-1">
-                        {article.bannerTitle}
-                      </h4>
-                      <p className="text-[11px] text-white/70 line-clamp-1">
-                        {article.bannerSub}
-                      </p>
+                  {/* Article Thumbnail Image */}
+                  <div className="relative h-48 w-full overflow-hidden bg-muted">
+                    <Image
+                      src={article.img}
+                      alt={article.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <span className="text-[10px] font-mono font-semibold tracking-wider px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/10">
+                        {article.categoryTag}
+                      </span>
                     </div>
                   </div>
 
-                  {/* Content */}
+                  {/* Card Content */}
                   <div className="p-6">
                     <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">
                       <div className="flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5" />
+                        <Calendar className="h-3.5 w-3.5 text-main" />
                         <span>{article.date}</span>
                       </div>
                       <span>•</span>
                       <div className="flex items-center gap-1">
-                        <Clock className="h-3.5 w-3.5" />
+                        <Clock className="h-3.5 w-3.5 text-main" />
                         <span>{article.readTime}</span>
                       </div>
                     </div>
@@ -422,7 +385,7 @@ export default function BlogListSection() {
 
                 <div className="px-6 pb-6 pt-2">
                   <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-main group-hover:underline">
-                    <span>Read More</span>
+                    <span>Read Post</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                   </span>
                 </div>
@@ -430,7 +393,7 @@ export default function BlogListSection() {
             ))}
           </div>
         </div>
-      </div>
+      </CommonSpace>
     </section>
   );
 }
