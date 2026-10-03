@@ -1,5 +1,6 @@
 import CommonHeader from "@/components/shared/CommonHeader";
 import CommonSpace from "@/components/shared/CommonSpace";
+import Container from "@/components/shared/Container";
 import { BLOG_POSTS } from "@/data/blogs";
 import agentProdImg from "@/public/images/agent-production.webp";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
@@ -179,8 +180,9 @@ export default function BlogListSection() {
   const featured = BLOG_POSTS[0];
 
   return (
-    <section className="w-full py-10 bg-background transition-colors">
+    <section className="w-full bg-background transition-colors">
       <CommonSpace>
+        <Container>
         {/* Main Header Centered */}
         <div className="flex justify-center mb-12 text-center">
           <CommonHeader
@@ -393,6 +395,7 @@ export default function BlogListSection() {
             ))}
           </div>
         </div>
+        </Container>
       </CommonSpace>
     </section>
   );
