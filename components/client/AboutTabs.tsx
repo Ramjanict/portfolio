@@ -81,37 +81,59 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       "React.js",
       "Next.js",
+      "TypeScript",
+      "JavaScript",
       "Tailwind CSS",
-      "React Native (Expo)",
-      "Redux",
+      "Shadcn UI",
+      "Redux Toolkit",
+      "Zustand",
+      "React Hook Form",
+      "HTML5 / CSS3",
     ],
   },
   {
     category: "Backend",
-    skills: ["Node.js", "Express.js", "REST APIs", "GraphQL"],
+    skills: [
+      "Node.js",
+      "NestJS",
+      "Express.js",
+      "REST APIs",
+      "JWT Authentication",
+      "WebSocket",
+      "Socket.IO",
+      "Microservices",
+    ],
   },
   {
-    category: "Databases",
-    skills: ["MongoDB", "PostgreSQL"],
+    category: "Databases & ORM",
+    skills: [
+      "PostgreSQL",
+      "MongoDB",
+      "Prisma ORM",
+      "Database Design",
+      "Schema Migrations",
+    ],
   },
   {
-    category: "GenAI & ML",
-    skills: ["GenAI", "LangChain", "Vector DBs", "RAG"],
+    category: "DevOps & Cloud",
+    skills: [
+      "Docker",
+      "Docker Compose",
+      "GitHub Actions (CI/CD)",
+      "Linux / VPS",
+      "Nginx",
+      "Render",
+    ],
   },
   {
-    category: "Cloud & DevOps",
-    skills: ["AWS (EC2, S3, CloudFront)", "Docker"],
+    category: "Testing & QA",
+    skills: ["Jest", "Vitest", "Playwright", "Cypress"],
   },
   {
-    category: "Programming Languages",
-    skills: ["JavaScript", "TypeScript", "C++"],
-  },
-  {
-    category: "DSA",
-    skills: ["Data Structures & Algorithms in C++"],
+    category: "Tools & Workflow",
+    skills: ["Git", "GitHub", "Postman", "VS Code", "Figma"],
   },
 ];
-
 interface PersonalInfoItem {
   icon: typeof User;
   value: string;

@@ -11,7 +11,6 @@ export default function TestimonialsSection() {
           <CommonHeader title="What Our Clients Say" />
         </div>
 
-        {/* Testimonials Slider */}
         <TestimonialsSlider />
       </CommonSpace>
     </section>
