@@ -52,7 +52,7 @@ const TESTIMONIALS: Testimonial[] = [
 ];
 
 export default function TestimonialsSlider() {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
   const total = TESTIMONIALS.length;
@@ -64,7 +64,7 @@ export default function TestimonialsSlider() {
 
   // Automatic Continuous Slider (Auto Mode)
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3500);
+    const interval = setInterval(nextSlide, 4000);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
@@ -72,66 +72,38 @@ export default function TestimonialsSlider() {
     return (currentIndex + offset + total) % total;
   };
 
-  const leftItem = TESTIMONIALS[getVisibleIndex(-1)];
-  const centerItem = TESTIMONIALS[currentIndex];
-  const rightItem = TESTIMONIALS[getVisibleIndex(1)];
+  const leftItem = TESTIMONIALS[getVisibleIndex(0)];
+  const centerItem = TESTIMONIALS[getVisibleIndex(1)];
+  const rightItem = TESTIMONIALS[getVisibleIndex(2)];
 
   return (
-    <div className="relative w-full">
-      {/* ── Desktop 3-Card View ── */}
-      <div className="hidden lg:grid lg:grid-cols-3 gap-6 items-center min-h-[260px]">
-        {/* Left Card */}
-        <div
-          onClick={() => {
-            setDirection(-1);
-            setCurrentIndex(getVisibleIndex(-1));
-          }}
-          className="cursor-pointer transition-all duration-300 transform opacity-80 hover:opacity-100 hover:scale-[1.02]"
+    <div className="relative w-full overflow-hidden py-4">
+      {/* ── Desktop 3-Card & Mobile 1-Card Full Smooth Slide ── */}
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, x: direction * 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -direction * 80 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch min-h-[250px]"
         >
-          <TestimonialCard item={leftItem} isActive={false} />
-        </div>
+          {/* Left Card */}
+          <div className="hidden lg:block">
+            <TestimonialCard item={leftItem} isActive={false} />
+          </div>
 
-        {/* Center Active Card */}
-        <div className="z-10 transform transition-all duration-300 scale-105">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={centerItem.id}
-              initial={{ opacity: 0, x: direction * 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -direction * 40 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-            >
-              <TestimonialCard item={centerItem} isActive={true} />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Right Card */}
-        <div
-          onClick={() => {
-            setDirection(1);
-            setCurrentIndex(getVisibleIndex(1));
-          }}
-          className="cursor-pointer transition-all duration-300 transform opacity-80 hover:opacity-100 hover:scale-[1.02]"
-        >
-          <TestimonialCard item={rightItem} isActive={false} />
-        </div>
-      </div>
-
-      {/* ── Mobile / Tablet Single Card View ── */}
-      <div className="block lg:hidden min-h-[240px] px-2 sm:px-6">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={centerItem.id}
-            initial={{ opacity: 0, x: direction * 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -direction * 50 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-          >
+          {/* Center Card */}
+          <div className="block">
             <TestimonialCard item={centerItem} isActive={true} />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+          </div>
+
+          {/* Right Card */}
+          <div className="hidden lg:block">
+            <TestimonialCard item={rightItem} isActive={false} />
+          </div>
+        </motion.div>
+      </AnimatePresence>
 
       {/* ── Dot Pagination Indicators ── */}
       <div className="flex items-center justify-center gap-2 mt-8">
