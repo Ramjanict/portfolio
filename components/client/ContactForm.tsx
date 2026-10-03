@@ -1,51 +1,59 @@
 "use client";
 
+import {
+  contactFormSchema,
+  type ContactFormData,
+} from "@/lib/validations/contact";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion } from "framer-motion";
 import { AlertCircle, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
-import { useState, useTransition } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
   const [submitted, setSubmitted] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [isPending, startTransition] = useTransition();
+  const [serverError, setServerError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+  });
 
-    setErrorMessage(null);
+  const onSubmit = async (data: ContactFormData) => {
+    setServerError(null);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    startTransition(async () => {
-      try {
-        const response = await fetch("/api/contact", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+      const result = await response.json();
 
-        const result = await response.json();
-
-        if (response.ok && result.success) {
-          setSubmitted(true);
-          setFormData({ name: "", email: "", message: "" });
-        } else {
-          setErrorMessage(
-            result.error || "Failed to send message. Please try again."
-          );
-        }
-      } catch (err) {
-        setErrorMessage(
-          "Network error. Please check your connection and try again."
+      if (response.ok && result.success) {
+        setSubmitted(true);
+        reset();
+      } else {
+        setServerError(
+          result.error || "Failed to send message. Please try again."
         );
       }
-    });
+    } catch (err) {
+      setServerError(
+        "Network error. Please check your connection and try again."
+      );
+    }
   };
 
   return (
@@ -70,7 +78,7 @@ export default function ContactForm() {
             <button
               onClick={() => {
                 setSubmitted(false);
-                setErrorMessage(null);
+                setServerError(null);
               }}
               className="mt-4 px-6 py-2 rounded-full text-xs font-semibold bg-muted hover:bg-muted/80 text-foreground transition-all cursor-pointer"
             >
@@ -78,15 +86,15 @@ export default function ContactForm() {
             </button>
           </motion.div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {errorMessage && (
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {serverError && (
               <motion.div
                 initial={{ opacity: 0, y: -5 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-xs flex items-center gap-2"
               >
                 <AlertCircle className="h-4 w-4 shrink-0" />
-                <span>{errorMessage}</span>
+                <span>{serverError}</span>
               </motion.div>
             )}
 
@@ -100,14 +108,20 @@ export default function ContactForm() {
               <input
                 id="name"
                 type="text"
-                required
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, name: e.target.value }))
-                }
+                {...register("name")}
                 placeholder="ex- John Dev"
-                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-main/50 focus:border-main transition-all"
+                className={`w-full rounded-xl border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-main/50 transition-all ${
+                  errors.name
+                    ? "border-destructive focus:border-destructive"
+                    : "border-border focus:border-main"
+                }`}
               />
+              {errors.name && (
+                <p className="text-xs text-destructive mt-1.5 font-medium flex items-center gap-1">
+                  <AlertCircle className="h-3.5 w-3.5" />
+                  <span>{errors.name.message}</span>
+                </p>
+              )}
             </div>
 
             <div>
@@ -120,14 +134,20 @@ export default function ContactForm() {
               <input
                 id="email"
                 type="email"
-                required
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, email: e.target.value }))
-                }
+                {...register("email")}
                 placeholder="mail@example.com"
-                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-main/50 focus:border-main transition-all"
+                className={`w-full rounded-xl border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-main/50 transition-all ${
+                  errors.email
+                    ? "border-destructive focus:border-destructive"
+                    : "border-border focus:border-main"
+                }`}
               />
+              {errors.email && (
+                <p className="text-xs text-destructive mt-1.5 font-medium flex items-center gap-1">
+                  <AlertCircle className="h-3.5 w-3.5" />
+                  <span>{errors.email.message}</span>
+                </p>
+              )}
             </div>
 
             <div>
@@ -139,26 +159,32 @@ export default function ContactForm() {
               </label>
               <textarea
                 id="message"
-                required
                 rows={5}
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData((prev) => ({ ...prev, message: e.target.value }))
-                }
+                {...register("message")}
                 placeholder="ex- hi , i wanna build something..."
-                className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-main/50 focus:border-main transition-all resize-y"
+                className={`w-full rounded-xl border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-main/50 transition-all resize-y ${
+                  errors.message
+                    ? "border-destructive focus:border-destructive"
+                    : "border-border focus:border-main"
+                }`}
               />
+              {errors.message && (
+                <p className="text-xs text-destructive mt-1.5 font-medium flex items-center gap-1">
+                  <AlertCircle className="h-3.5 w-3.5" />
+                  <span>{errors.message.message}</span>
+                </p>
+              )}
             </div>
 
             <div>
               <motion.button
                 type="submit"
-                disabled={isPending}
-                whileHover={{ scale: isPending ? 1 : 1.03 }}
-                whileTap={{ scale: isPending ? 1 : 0.97 }}
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.03 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.97 }}
                 className="group inline-flex items-center justify-center gap-2 bg-main hover:bg-[#e05a3c] text-white font-semibold py-3 px-8 rounded-full text-sm shadow-md hover:shadow-lg transition-all disabled:opacity-50 cursor-pointer"
               >
-                {isPending ? (
+                {isSubmitting ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" />
                     <span>Sending...</span>
