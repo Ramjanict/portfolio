@@ -1,5 +1,6 @@
 "use client";
 
+import blogImg from "@/public/images/agent-production.webp";
 import type { BlogPost } from "@/data/blogs";
 import {
   ArrowLeft,
@@ -12,6 +13,7 @@ import {
   Sparkles,
   Tag,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -28,6 +30,8 @@ export default function BlogDetailView({ post }: Props) {
     setTimeout(() => setCopiedIndex(null), 2000);
   };
 
+  const imageSrc = post.img || blogImg;
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
       {/* Back button */}
@@ -39,36 +43,45 @@ export default function BlogDetailView({ post }: Props) {
         <span>Back to all articles</span>
       </Link>
 
-      {/* ─── Top Featured Banner / Graphic ─── */}
-      <div className="w-full bg-gradient-to-br from-rose-950 via-zinc-900 to-black text-white rounded-3xl p-8 sm:p-12 mb-10 shadow-lg relative overflow-hidden">
-        <div className="absolute top-4 right-4 flex items-center gap-2">
-          <span className="text-xs font-mono font-bold tracking-widest text-rose-300 uppercase px-3 py-1 rounded-full bg-white/10">
-            Production Engineering
-          </span>
-          <span className="h-2.5 w-2.5 rounded-full bg-main animate-ping" />
-        </div>
+      {/* ─── Top Featured Image Hero Banner ─── */}
+      <div className="w-full relative min-h-[300px] sm:min-h-[420px] rounded-3xl overflow-hidden mb-10 shadow-xl border border-border/60">
+        <Image
+          src={imageSrc}
+          alt={post.title}
+          fill
+          priority
+          sizes="(max-width: 1280px) 100vw, 1280px"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent flex flex-col justify-end p-6 sm:p-10 text-white">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-xs font-mono font-bold tracking-widest text-rose-300 uppercase px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
+              Technical Deep Dive
+            </span>
+            <span className="h-2.5 w-2.5 rounded-full bg-main animate-ping" />
+          </div>
 
-        <div className="max-w-3xl my-4">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white mb-2">
-            YOUR AI AGENT WORKS IN DEMO.
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white mb-2 max-w-4xl">
+            {post.bannerTitle}
           </h1>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-main">
-            WILL IT SURVIVE PRODUCTION?
-          </h1>
-          <p className="text-sm sm:text-base text-zinc-300 mt-4 font-mono">
-            Lessons Learned Building Production-Ready AI Agents
+          <p className="text-sm sm:text-base text-zinc-300 font-mono">
+            {post.bannerSub}
           </p>
-        </div>
 
-        <div className="flex flex-wrap gap-2 text-xs font-mono text-zinc-300 mt-6 pt-6 border-t border-white/10">
-          <span className="bg-white/10 px-3 py-1 rounded-md">
-            ✔ Reliability
-          </span>
-          <span className="bg-white/10 px-3 py-1 rounded-md">
-            State & Recovery
-          </span>
-          <span className="bg-white/10 px-3 py-1 rounded-md">Idempotency</span>
-          <span className="bg-white/10 px-3 py-1 rounded-md">Verification</span>
+          <div className="flex flex-wrap gap-2 text-xs font-mono text-zinc-300 mt-4 pt-4 border-t border-white/20">
+            <span className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-md border border-white/10">
+              ✔ Reliability
+            </span>
+            <span className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-md border border-white/10">
+              State & Recovery
+            </span>
+            <span className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-md border border-white/10">
+              Idempotency
+            </span>
+            <span className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-md border border-white/10">
+              Verification
+            </span>
+          </div>
         </div>
       </div>
 

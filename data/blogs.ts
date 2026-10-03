@@ -1,3 +1,5 @@
+import blogImg from "@/public/images/agent-production.webp";
+
 export interface BlogSectionItem {
   id: string;
   title: string;
@@ -19,11 +21,13 @@ export interface BlogPost {
   bannerGradient: string;
   year: "2026" | "2025";
   sections: BlogSectionItem[];
+  img?: any;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "ai-agent-in-production",
+    img: blogImg,
     title: "Your AI Agent Works in Demo. Will It Survive Production?",
     excerpt:
       "An AI agent is not just an LLM with tools. It is a distributed system with an LLM inside it. A practical guide to building production-grade AI agents — from idempotency and circuit breakers to durable state and evaluation.",
