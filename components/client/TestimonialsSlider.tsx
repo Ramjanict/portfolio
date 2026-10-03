@@ -49,6 +49,15 @@ const TESTIMONIALS: Testimonial[] = [
     quote:
       "Collaborating with Md Ramjan Ali was seamless and productive. Their ability to handle tight deadlines without compromising quality was truly impressive.",
   },
+  {
+    id: 5,
+    name: "Frency Smith",
+    role: "Product Manager",
+    avatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+    quote:
+      "Collaborating with Md Ramjan Ali was seamless and productive. Their ability to handle tight deadlines without compromising quality was truly impressive.",
+  },
 ];
 
 export default function TestimonialsSlider() {
@@ -78,14 +87,14 @@ export default function TestimonialsSlider() {
 
   return (
     <div className="relative w-full overflow-hidden py-4">
-      {/* ── Desktop 3-Card & Mobile 1-Card Full Smooth Slide ── */}
-      <AnimatePresence mode="wait" custom={direction}>
+      {/* ── Smooth Non-Blinking Slider Track (popLayout mode) ── */}
+      <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={currentIndex}
-          initial={{ opacity: 0, x: direction * 80 }}
+          initial={{ opacity: 0, x: direction * 60 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -direction * 80 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
+          exit={{ opacity: 0, x: -direction * 60 }}
+          transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
           className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch min-h-[250px]"
         >
           {/* Left Card */}
