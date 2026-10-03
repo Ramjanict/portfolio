@@ -3,19 +3,12 @@ import { Testimonial } from "../TestimonialsSlider";
 
 function TestimonialCard({
   item,
-  isActive,
 }: {
   item: Testimonial;
-  isActive: boolean;
+  isActive?: boolean;
 }) {
   return (
-    <div
-      className={`relative rounded-3xl p-6 sm:p-7 transition-all duration-300 flex flex-col justify-between h-full bg-white dark:bg-[#1a1a2a] ${
-        isActive
-          ? "border-2 border-main/40 dark:border-main/50 shadow-xl shadow-main/5 dark:shadow-none"
-          : "border border-border/70 dark:border-white/10 shadow-xs"
-      }`}
-    >
+    <div className="testimonial-card relative rounded-3xl p-6 sm:p-7 transition-all duration-300 flex flex-col justify-between min-h-[220px] bg-white dark:bg-[#1a1a2a] border border-border/70 dark:border-white/10 shadow-xs">
       {/* User Info Header */}
       <div className="flex items-center gap-4 mb-4">
         <div className="relative h-12 w-12 sm:h-14 sm:w-14 rounded-full overflow-hidden shrink-0 border-2 border-main/20">

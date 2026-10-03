@@ -155,3 +155,45 @@
 .dark .bg-about_shape_dark {
   background-image: url("/hero/shape-2-dark.svg");
 }
+
+/* ── React Slick Custom Testimonial Slider Styles ── */
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+.slick-slider {
+  width: 100%;
+}
+.slick-list {
+  padding: 20px 0 !important;
+  overflow: hidden;
+}
+.slick-slide > div {
+  padding: 0 12px;
+}
+.slick-center .testimonial-card {
+  transform: scale(1.04);
+  border-color: rgba(242, 107, 77, 0.5) !important;
+  box-shadow: 0 20px 25px -5px rgba(242, 107, 77, 0.08), 0 8px 10px -6px rgba(242, 107, 77, 0.08) !important;
+  opacity: 1 !important;
+}
+.slick-slide:not(.slick-center) .testimonial-card {
+  opacity: 0.75;
+  transform: scale(0.96);
+}
+.slick-dots {
+  bottom: -35px !important;
+}
+.slick-dots li {
+  margin: 0 4px !important;
+}
+.slick-dots li button:before {
+  font-size: 8px !important;
+  color: #a0a0b8 !important;
+  opacity: 0.5 !important;
+  transition: all 0.3s ease;
+}
+.slick-dots li.slick-active button:before {
+  color: #f26b4d !important;
+  opacity: 1 !important;
+  font-size: 12px !important;
+}
