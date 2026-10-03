@@ -1,7 +1,5 @@
 import AboutSection from "@/components/sections/home/AboutSection";
 import BlogSection from "@/components/sections/home/BlogSection";
-import CtaSection from "@/components/sections/home/CtaSection";
-import GearSection from "@/components/sections/home/GearSection";
 import Hero from "@/components/sections/home/Hero";
 import ProjectsSection from "@/components/sections/home/ProjectsSection";
 import TestimonialsSection from "@/components/sections/home/TestimonialsSection";
@@ -16,8 +14,6 @@ export default function Home() {
         <ProjectsSection />
         <BlogSection />
         <TestimonialsSection />
-        <GearSection />
-        <CtaSection />
       </Container>
     </main>
   );
