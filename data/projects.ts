@@ -41,6 +41,72 @@ export interface LearningProject {
 
 export const CLIENT_PROJECTS: ClientProject[] = [
   {
+    slug: "areese",
+    title: "Areese (Don't Forget)",
+    tagline: "Intelligent Appointment & Team Operations SaaS",
+    category: "SaaS & Productivity",
+    status: "Ongoing",
+    image:
+      "https://raw.githubusercontent.com/Ramjanict/areese-frontend/main/src/assets/images/dashboard-preview.jpg",
+    images: [
+      "https://raw.githubusercontent.com/Ramjanict/areese-frontend/main/src/assets/images/dashboard-preview.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/areese-frontend/main/src/assets/images/public-booking-portal.png",
+      "https://raw.githubusercontent.com/Ramjanict/areese-frontend/main/src/assets/images/team-collaboration-hub.png",
+      "https://raw.githubusercontent.com/Ramjanict/areese-frontend/main/src/assets/images/followup-workflow-automation.png",
+      "https://raw.githubusercontent.com/Ramjanict/areese-frontend/main/src/assets/images/integrations-and-templates.png",
+      "https://raw.githubusercontent.com/Ramjanict/areese-frontend/main/src/assets/images/appointment-calendar-view.png",
+    ],
+    description:
+      "A full-featured appointment scheduling, client booking, and team collaboration SaaS platform enabling consultancies and agencies to manage consultations, follow-ups, and payments.",
+    overview:
+      "Areese (branded as Don't Forget) is an all-in-one business operations and appointment scheduling platform designed for consultancies, agencies, and service professionals. It combines public client scheduling with deep internal operational workflows — including smart follow-up queues, team project tracking, automated message templates, and multi-channel video conferencing integrations.",
+    developersNote:
+      "Architected and developed the entire frontend application using React 19, TypeScript, and Vite. Designed role-based protected routing for Admin and Collaborator workspaces, integrated dynamic booking packages with calendar slot picking, Redux Toolkit centralized state, and connected payment and video conferencing services.",
+    keyFeatures: [
+      "Self-serve public booking portal with custom limits and URL redirects",
+      "Tiered consultation packages with duration notes and service fees",
+      "Role-Based Access Control (Admin and Collaborator dedicated dashboards)",
+      "Multi-stage follow-up pipeline (Due Today, Follow-Up, Late, Upcoming)",
+      "Video conferencing integrations with Google Meet and Zoom",
+      "Payment gateway integration for Stripe and PayPal",
+      "1-Click copy-to-clipboard reusable message templates",
+      "Real-time analytics dashboard with Recharts KPIs and booking metrics",
+    ],
+    deliverables: [
+      "Full frontend architecture with React 19 & TypeScript",
+      "Admin command center and collaborator workspaces",
+      "Interactive public booking flow with live calendar picking",
+      "Automated client follow-up tracking and reminder engine",
+      "Redux Toolkit state management layer",
+      "Automated CI/CD deployment configuration on Vercel",
+    ],
+    challenges: [
+      "Architecting smooth role-based routing and authorization guards across client, collaborator, and admin portals",
+      "Building an interactive calendar appointment scheduler with dynamic time slot validation and booking limits",
+      "Implementing clean multi-panel settings for integrations, branding, and notification templates",
+    ],
+    futurePlans: [
+      "Two-way calendar sync with Google Calendar and Outlook",
+      "Automated SMS and WhatsApp reminder notifications",
+      "AI-assisted follow-up notes and client satisfaction scoring",
+    ],
+    tags: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "Radix UI",
+      "Recharts",
+      "Framer Motion",
+    ],
+    liveUrl: "https://getdontforget.net",
+    githubUrl: "https://github.com/Ramjanict/areese-frontend",
+    timeline: "2025 - Present",
+    role: "Frontend Engineer",
+    teamMembers: [{ name: "Md Ramjan Ali", role: "Frontend Engineer" }],
+  },
+  {
     slug: "lexipitch",
     title: "LexiPitch",
     tagline: "AI-Powered Customer Engagement Platform",
@@ -93,9 +159,7 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     githubUrl: "https://github.com/Ramjanict",
     timeline: "2024 - Present",
     role: "Frontend & AI Engineer",
-    teamMembers: [
-      { name: "Md Ramjan Ali", role: "Frontend & AI Engineer" },
-    ],
+    teamMembers: [{ name: "Md Ramjan Ali", role: "Frontend & AI Engineer" }],
   },
   {
     slug: "swaasta",
@@ -147,9 +211,7 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     githubUrl: "https://github.com/Ramjanict",
     timeline: "2024 - Present",
     role: "FullStack Engineer",
-    teamMembers: [
-      { name: "Md Ramjan Ali", role: "FullStack Engineer" },
-    ],
+    teamMembers: [{ name: "Md Ramjan Ali", role: "FullStack Engineer" }],
   },
   {
     slug: "korike",
@@ -253,9 +315,7 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     githubUrl: "https://github.com/Ramjanict",
     timeline: "2024",
     role: "Frontend Developer",
-    teamMembers: [
-      { name: "Md Ramjan Ali", role: "Frontend Developer" },
-    ],
+    teamMembers: [{ name: "Md Ramjan Ali", role: "Frontend Developer" }],
   },
   {
     slug: "icesion",
@@ -350,14 +410,19 @@ export const CLIENT_PROJECTS: ClientProject[] = [
       "E-commerce integration",
       "Advanced analytics dashboard",
     ],
-    tags: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Node.js", "MongoDB"],
+    tags: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "TypeScript",
+      "Node.js",
+      "MongoDB",
+    ],
     liveUrl: "https://sitelayers.dev",
     githubUrl: "https://github.com/Ramjanict",
     timeline: "2024",
     role: "Full Stack Developer",
-    teamMembers: [
-      { name: "Md Ramjan Ali", role: "Full Stack Developer" },
-    ],
+    teamMembers: [{ name: "Md Ramjan Ali", role: "Full Stack Developer" }],
   },
 ];
 
@@ -366,87 +431,165 @@ export const CLIENT_PROJECTS: ClientProject[] = [
 export const LEARNING_PROJECTS: LearningProject[] = [
   {
     slug: "block-graph",
-    title: "Block-Graph",
+    title: "NodeFlow – Block Graph Builder",
     category: "React.js",
-    image: "/assets/new/block.png",
-    description:
-      "Interactive block graph and node connectivity visualization tool with dynamic layout rendering.",
-    overview:
-      "An interactive block graph and node connectivity visualization tool built with React.js and Canvas APIs for dynamic layout rendering.",
-    keyFeatures: [
-      "Dynamic node graph rendering",
-      "Interactive drag and connect",
-      "Canvas-based visualization",
-      "Responsive layout engine",
+    image:
+      "https://raw.githubusercontent.com/Ramjanict/Block-Graph/main/src/assets/nodeflow_banner_hero_1791092084963.jpg",
+    images: [
+      "https://raw.githubusercontent.com/Ramjanict/Block-Graph/main/src/assets/nodeflow_banner_hero_1791092084963.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Block-Graph/main/src/assets/nodeflow_main_interface_1791091048777.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Block-Graph/main/src/assets/nodeflow_drag_interaction_1791091262740.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Block-Graph/main/src/assets/nodeflow_connectors_diagram_1791092120191.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Block-Graph/main/src/assets/nodeflow_mindmap_usecase_1791092173033.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Block-Graph/main/src/assets/nodeflow_dark_theme_1791092148881.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Block-Graph/main/src/assets/nodeflow_mobile_responsive_1791092196146.jpg",
     ],
-    tags: ["React.js", "Canvas", "Graphs", "Tailwind CSS"],
+    description:
+      "A zero-dependency interactive visual node editor and block graph builder with dynamic hierarchical tree layouts and real-time SVG connectors.",
+    overview:
+      "NodeFlow is an interactive tree-structured node graph visualizer built with React, TypeScript, and Tailwind CSS. It enables users to spawn child nodes dynamically, drag and reposition blocks across a full-viewport canvas, and render live orthogonal SVG polyline connectors that adapt in real time to node coordinates without external graph libraries.",
+    keyFeatures: [
+      "Dynamic child node spawning with automatic horizontal & vertical offset calculation",
+      "Smooth drag-and-drop node repositioning via native mouse event listeners",
+      "Real-time orthogonal (step) SVG polyline connection lines with dynamic mid-points",
+      "Zero external graph library dependencies (pure React + SVG architecture)",
+      "Hierarchical tree state management with TypeScript type safety",
+      "Full-viewport responsive canvas with overflow protection",
+    ],
+    tags: [
+      "React.js",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "SVG",
+      "Node Graph",
+      "Drag & Drop",
+      "Tree Visualization",
+    ],
     codeUrl: "https://github.com/Ramjanict/Block-Graph",
     demoUrl: "https://block-graph-seven.vercel.app/",
     timeline: "2024",
-    role: "Developer",
+    role: "Frontend Developer",
   },
   {
     slug: "relationship-visualizer",
-    title: "Relationship-Visualizer",
+    title: "NodeLink — Real-Time Relationship Graph Visualizer",
     category: "React.js",
-    image: "/assets/new/relation.png",
-    description:
-      "Interactive data relationship and node connections visualizer built with modern React.",
-    overview:
-      "An interactive data relationship and entity connections visualizer built with modern React for exploring complex data hierarchies.",
-    keyFeatures: [
-      "Entity relationship mapping",
-      "Interactive node exploration",
-      "Data hierarchy visualization",
-      "Responsive design",
+    image:
+      "https://raw.githubusercontent.com/Ramjanict/Relationship-Visualizer/main/src/assets/images/app_preview_mockup.jpg",
+    images: [
+      "https://raw.githubusercontent.com/Ramjanict/Relationship-Visualizer/main/src/assets/images/github_hero_banner.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Relationship-Visualizer/main/src/assets/images/app_preview_mockup.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Relationship-Visualizer/main/src/assets/images/realtime_sync_concept.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Relationship-Visualizer/main/src/assets/images/network_graph_abstract.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Relationship-Visualizer/main/src/assets/images/nodelink_app_icon.jpg",
     ],
-    tags: ["React.js", "Data Viz", "Nodes", "Interactive UI"],
+    description:
+      "A real-time relationship visualizer that dynamically parses free-form text into an interactive, zero-dependency SVG network graph on every keystroke.",
+    overview:
+      "NodeLink is an interactive relationship graph tool built with React 19, TypeScript, and Zustand. It continuously extracts person and relationship schemas from a free-text editor, rendering an interactive SVG network graph in real time with age-proportional nodes and labeled directional edges—without relying on any external charting libraries.",
+    keyFeatures: [
+      "Real-time keystroke text parsing with forgiving loose-JSON detection",
+      "Zero-dependency native SVG graph rendering for optimal performance",
+      "Age-proportional dynamic node scaling and labeled directional edges",
+      "Graceful error-free degradation (invalid objects auto-remove without crashing)",
+      "Full multilingual Unicode support for person names and relationships",
+      "Minimalist global state management powered by Zustand",
+    ],
+    tags: [
+      "React.js",
+      "TypeScript",
+      "Vite",
+      "Zustand",
+      "Tailwind CSS",
+      "SVG Graph",
+      "Data Visualization",
+      "Real-Time Parser",
+    ],
     codeUrl: "https://github.com/Ramjanict/Relationship-Visualizer",
     demoUrl: "https://relationship-visualizer.vercel.app",
     timeline: "2024",
-    role: "Developer",
+    role: "Frontend Developer",
   },
   {
     slug: "square-video-player",
-    title: "Square-Video-Player",
+    title: "Square Video Player",
     category: "React.js",
-    image: "/assets/new/video.png",
-    description:
-      "Responsive square aspect ratio video player featuring customized media controls and overlay gestures.",
-    overview:
-      "A responsive square aspect ratio video player with customized HTML5 media controls and overlay gestures for modern video playback.",
-    keyFeatures: [
-      "Custom video controls",
-      "Square 1:1 aspect ratio",
-      "Gesture-based interactions",
-      "Responsive design",
+    // Primary cover image (uses raw GitHub link so it renders directly in <img> tags)
+    image:
+      "https://raw.githubusercontent.com/Ramjanict/Square-Video-Player/main/assets/hero-banner.svg",
+    images: [
+      "https://raw.githubusercontent.com/Ramjanict/Square-Video-Player/main/assets/hero-banner.svg",
+      "https://raw.githubusercontent.com/Ramjanict/Square-Video-Player/main/assets/player-preview.svg",
+      "https://raw.githubusercontent.com/Ramjanict/Square-Video-Player/main/assets/dark-cyber-theme.svg",
+      "https://raw.githubusercontent.com/Ramjanict/Square-Video-Player/main/assets/perimeter-seek-demo.svg",
+      "https://raw.githubusercontent.com/Ramjanict/Square-Video-Player/main/assets/component-architecture.svg",
     ],
-    tags: ["React.js", "HTML5 Video", "Custom Controls", "Responsive"],
+    description:
+      "A sleek 1:1 squircle video player featuring an animated SVG perimeter progress ring, smooth quadratic easing seeking, and glowing neon accents.",
+    overview:
+      "Square Video Player reimagines conventional horizontal video scrubbers by wrapping the playback timeline around the outer perimeter of a 1:1 rounded squircle container. Powered by React 19, TypeScript, and Tailwind CSS v4, it computes real-time SVG stroke-dashoffset progression, tracks border click coordinates across four quadrants for immediate seeking, and applies mathematical quadratic ease-in/out interpolation without relying on external media player libraries.",
+    keyFeatures: [
+      "1:1 Geometric Squircle Frame (400x400 with smooth 50px rounded corners)",
+      "360° SVG Perimeter Progress Ring with glowing drop-shadow effects",
+      "Interactive 4-Quadrant Border Scrubbing (Top, Right, Bottom, Left edge mapping)",
+      "Fluid Quadratic Easing Seek Interpolation powered by requestAnimationFrame",
+      "Real-time Synchronized Angular Pointer Indicator tracking the circumference",
+      "Lightweight Zero-Bloat Architecture built purely on native HTML5 Media API",
+    ],
+    tags: [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "SVG Animation",
+      "HTML5 Media",
+      "Custom Video Player",
+      "Interactive UI",
+    ],
     codeUrl: "https://github.com/Ramjanict/Square-Video-Player",
     demoUrl: "https://square-video-player.vercel.app",
-    timeline: "2024",
-    role: "Developer",
+    timeline: "2025",
+    role: "Frontend Developer",
   },
   {
     slug: "recursive-partitioner",
-    title: "Recursive-Partitioner",
+    title: "Recursive Partitioner",
     category: "React.js",
-    image: "/assets/new/partition.png",
-    description:
-      "Dynamic recursive screen partitioner and nested layout visualizer with split controls.",
-    overview:
-      "A dynamic recursive screen partitioner that demonstrates algorithmic layout splitting with interactive controls.",
-    keyFeatures: [
-      "Recursive screen splitting",
-      "Interactive split controls",
-      "Color-coded partitions",
-      "Algorithm visualization",
+    image:
+      "https://raw.githubusercontent.com/Ramjanict/Recursive-Partitioner/main/public/screenshots/hero-preview.jpg",
+    images: [
+      "https://raw.githubusercontent.com/Ramjanict/Recursive-Partitioner/main/public/screenshots/hero-preview.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Recursive-Partitioner/main/public/screenshots/architecture-tree.svg",
+      "https://raw.githubusercontent.com/Ramjanict/Recursive-Partitioner/main/public/screenshots/split-interaction.svg",
+      "https://raw.githubusercontent.com/Ramjanict/Recursive-Partitioner/main/public/screenshots/drag-resize-hud.svg",
+      "https://raw.githubusercontent.com/Ramjanict/Recursive-Partitioner/main/public/screenshots/pruning-workflow.svg",
     ],
-    tags: ["React.js", "Recursion", "Layout Split", "Algorithms"],
+    description:
+      "An interactive, zero-dependency recursive split-pane layout engine that models browser viewports as expandable binary trees with dynamic drag-resizing and magnetic snapping.",
+    overview:
+      "Recursive Partitioner is an interactive web-based layout builder inspired by tiling window managers (i3, tmux) and multi-pane IDEs. It enables users to infinitely subdivide viewports along vertical and horizontal axes, dynamically adjust partition ratios with real-time HUD feedback, magnetically snap to standard fractions, and seamlessly rebalance layouts through automated tree pruning and child hoisting.",
+    keyFeatures: [
+      "Infinite dual-axis recursive splitting (vertical [v] and horizontal [h])",
+      "Stateful HSL color persistence for parent partitions and randomized child hues",
+      "Fluid divider drag-to-resize with safe boundary clamping (10% – 90%)",
+      "Real-time HUD ratio tooltip with magnetic snap alignment (1/4th, 1/2th, 3/4th)",
+      "Automated binary tree rebalancing and child hoisting upon partition removal",
+      "Zero-dependency UI core built purely with React 18, TypeScript, and Zustand",
+    ],
+    tags: [
+      "React.js",
+      "TypeScript",
+      "Zustand",
+      "Tailwind CSS",
+      "Vite",
+      "Binary Tree",
+      "Split Pane",
+      "Layout Engine",
+    ],
     codeUrl: "https://github.com/Ramjanict/Recursive-Partitioner",
     demoUrl: "https://recursive-partitioner-beta.vercel.app",
     timeline: "2024",
-    role: "Developer",
+    role: "Frontend Developer",
   },
   {
     slug: "book-management-app",
@@ -536,11 +679,15 @@ export const LEARNING_PROJECTS: LearningProject[] = [
 
 /* ─── Helpers ──────────────────────────────────────────────── */
 
-export function getClientProjectBySlug(slug: string): ClientProject | undefined {
+export function getClientProjectBySlug(
+  slug: string,
+): ClientProject | undefined {
   return CLIENT_PROJECTS.find((p) => p.slug === slug);
 }
 
-export function getLearningProjectBySlug(slug: string): LearningProject | undefined {
+export function getLearningProjectBySlug(
+  slug: string,
+): LearningProject | undefined {
   return LEARNING_PROJECTS.find((p) => p.slug === slug);
 }
 
