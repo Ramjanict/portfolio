@@ -15,6 +15,7 @@ export interface ClientProject {
   futurePlans: string[];
   tags: string[];
   liveUrl: string;
+  previewUrl?: string;
   githubUrl: string;
   timeline: string;
   role: string;
@@ -40,6 +41,76 @@ export interface LearningProject {
 /* ─── Client Projects ──────────────────────────────────────── */
 
 export const CLIENT_PROJECTS: ClientProject[] = [
+  {
+    slug: "cognisphere-ai",
+    title: "Cognisphere AI",
+    tagline: "Unified Multi-Model AI Co-Pilot & Synthesis Platform",
+    category: "Artificial Intelligence & SaaS",
+    status: "Completed",
+    image:
+      "https://raw.githubusercontent.com/Ramjanict/Cognisphere-AI/main/public/images/preview-hero.jpg",
+    images: [
+      "https://raw.githubusercontent.com/Ramjanict/Cognisphere-AI/main/public/images/preview-hero.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Cognisphere-AI/main/public/images/preview-comparison.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Cognisphere-AI/main/public/images/preview-synthesis.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Cognisphere-AI/main/public/images/preview-dashboard.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Cognisphere-AI/main/public/images/preview-image-gen.jpg",
+    ],
+    description:
+      "An enterprise AI comparison & consensus SaaS platform that dispatches queries concurrently to leading foundation models (GPT-4o, Claude 3.5, Gemini 1.5, Perplexity), provides side-by-side responses, and synthesizes high-accuracy consensus answers alongside an AI image studio.",
+    overview:
+      "Cognisphere is a multi-model AI platform developed for client Intellecta Labs LLC to eliminate AI hallucinations, bias, and fragmented subscription fees. By issuing prompts simultaneously to top LLMs (OpenAI ChatGPT, Anthropic Claude, Google Gemini, and Perplexity), users can review differing reasoning styles side-by-side or utilize Cognisphere's intelligent synthesis engine for an optimal consolidated answer. The platform includes a generative AI image studio, LaTeX mathematical equation rendering, thread history management, and Stripe subscription billing.",
+    developersNote:
+      "Served as Lead Frontend Engineer for client Intellecta Labs LLC. Architected and developed the entire frontend web application using Next.js 16 (App Router), React 18, TypeScript, and Tailwind CSS v4. Engineered parallel asynchronous model dispatching with Redux Toolkit Query, implemented Firebase OAuth & JWT authentication, built interactive Markdown and LaTeX math parsing (KaTeX), and created fluid dark-mode micro-animations with Framer Motion and Radix UI.",
+    keyFeatures: [
+      "Parallel multi-LLM orchestration across OpenAI GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro, and Perplexity",
+      "Intelligent AI consensus & synthesis engine delivering hallucination-free, unified summaries",
+      "Interactive side-by-side comparative analysis view with model-specific response tabs",
+      "Generative AI image creation studio with custom aspect ratios, resolutions, and 1-click downloads",
+      "Rich Markdown code formatting with LaTeX mathematical equation rendering via KaTeX",
+      "Dual authentication flow with Email/Password (OTP verification) and Firebase Google OAuth",
+      "Dynamic chat history & session management with debounced search, renaming, and deletion",
+      "Full SaaS billing and subscription lifecycle management powered by Stripe checkout",
+    ],
+    deliverables: [
+      "Modern Next.js 16 App Router frontend architecture with TypeScript & Tailwind CSS v4",
+      "Interactive AI co-pilot workspace and comparative model inspection interface",
+      "Generative AI image studio with responsive media grid and instant downloads",
+      "Redux Toolkit and RTK Query state management layer with persistent session caching",
+      "Multi-mode authentication system (Firebase OAuth + secure JWT session cookies)",
+      "Production CI/CD deployment configuration on Vercel with responsive dark-theme design",
+    ],
+    challenges: [
+      "Orchestrating and reconciling simultaneous streaming responses from multiple distinct AI adapters within a single unified chat UI",
+      "Implementing performant Markdown and complex LaTeX mathematical formula parsing without client-side hydration mismatches",
+      "Designing an adaptive, collapsible dashboard sidebar with real-time session search, pagination, and subscription gating",
+    ],
+    futurePlans: [
+      "Multi-turn conversational context persistence across individual foundation models",
+      "Custom user prompt templates and specialized system persona builder",
+      "Thread export capabilities to PDF, Markdown, and structured JSON",
+      "Multi-modal audio transcription and speech-to-speech interaction",
+    ],
+    tags: [
+      "Next.js 16",
+      "React 18",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Redux Toolkit",
+      "RTK Query",
+      "Firebase Auth",
+      "Radix UI",
+      "Framer Motion",
+      "KaTeX",
+      "Stripe",
+    ],
+    liveUrl: "https://cognisphere.us/home",
+    previewUrl: "https://sarbeswardas-frontend-tawny.vercel.app/",
+    githubUrl: "https://github.com/Ramjanict/Cognisphere-AI",
+    timeline: "2025 - Present",
+    role: "Lead Frontend Engineer",
+    teamMembers: [{ name: "Md Ramjan Ali", role: "Lead Frontend Engineer" }],
+  },
   {
     slug: "goautomatemd",
     title: "GoAutomateMD",
@@ -316,59 +387,7 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     role: "Full-Stack Developer",
     teamMembers: [{ name: "Md Ramjan Ali", role: "Full-Stack Developer" }],
   },
-  {
-    slug: "korike",
-    title: "Korike",
-    tagline: "Zero-Commission Ride-Sharing & Delivery",
-    category: "Transportation",
-    status: "Upcoming",
-    image: "/assets/images/2.png",
-    images: [
-      "/assets/images/2.png",
-      "/assets/images/14.png",
-      "/assets/images/15.png",
-    ],
-    description:
-      "A zero-commission ride-sharing and delivery platform with a subscription model for drivers.",
-    overview:
-      "Korike is an innovative zero-commission ride-sharing and delivery platform designed with a subscription-based model for drivers instead of per-ride commissions.",
-    developersNote:
-      "Architecting the mobile app with React Native and building the real-time location tracking system with Google Maps integration.",
-    keyFeatures: [
-      "Zero-commission driver model",
-      "Real-time GPS tracking and route optimization",
-      "Subscription-based driver payments",
-      "In-app messaging between rider and driver",
-      "Surge pricing algorithms",
-      "Driver analytics dashboard",
-    ],
-    deliverables: [
-      "React Native mobile application",
-      "Backend microservices",
-      "Real-time location tracking",
-      "Payment integration",
-      "Admin dashboard",
-      "DevOps and cloud setup",
-    ],
-    challenges: [
-      "Building efficient real-time location tracking",
-      "Implementing fair surge pricing algorithms",
-      "Handling concurrent ride requests at scale",
-    ],
-    futurePlans: [
-      "Electric vehicle fleet integration",
-      "AI route optimization",
-      "Package delivery service",
-    ],
-    tags: ["React Native", "Node.js", "PostgreSQL", "Google Maps API", "AWS"],
-    liveUrl: "https://korike.com",
-    githubUrl: "https://github.com/Ramjanict",
-    timeline: "2025 - Upcoming",
-    role: "Mobile & Backend Developer",
-    teamMembers: [
-      { name: "Md Ramjan Ali", role: "Mobile & Backend Developer" },
-    ],
-  },
+
   {
     slug: "vibecheck",
     title: "VibeCheck",
@@ -432,6 +451,141 @@ export const CLIENT_PROJECTS: ClientProject[] = [
     liveUrl: "https://hussshehata.vercel.app/",
     githubUrl: "https://github.com/Ramjanict/hussshehata",
     timeline: "2025 - 2026",
+    role: "Frontend Engineer",
+    teamMembers: [{ name: "Md Ramjan Ali", role: "Frontend Engineer" }],
+  },
+  {
+    slug: "vitalis",
+    title: "Vitalis Health",
+    tagline: "AI-Powered Health & Wellness Admin Dashboard",
+    category: "Healthcare & AI SaaS",
+    status: "Completed",
+    image:
+      "https://raw.githubusercontent.com/Ramjanict/Vitalis-Health/main/public/images/dashboard-hero.jpg",
+    images: [
+      "https://raw.githubusercontent.com/Ramjanict/Vitalis-Health/main/public/images/dashboard-hero.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Vitalis-Health/main/public/images/health-vitals.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Vitalis-Health/main/public/images/ai-wellness-assistant.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Vitalis-Health/main/public/images/nutrition-scanner.jpg",
+      "https://raw.githubusercontent.com/Ramjanict/Vitalis-Health/main/public/images/wellness-nudges.jpg",
+    ],
+    description:
+      "An enterprise-grade, responsive healthcare and wellness management dashboard delivering real-time patient biometrics, wearable device synchronization, AI health companion logs, nutrition database tracking, and proactive wellness nudges.",
+    overview:
+      "Vitalis is an all-in-one AI-driven healthcare and wellness administration platform designed for health coaches, clinics, and medical practitioners. It bridges continuous patient vitals monitoring from wearable ecosystems (Apple Health, Fitbit, Garmin, Whoop, Oura) with proactive habit nudges, AI diagnostic chat monitoring, biomarker lab report workflows, and macronutrient intake analytics.",
+    developersNote:
+      "Architected and developed the full standalone frontend application using Next.js 16 (App Router), React 19, TypeScript, and Tailwind CSS v4. Implemented a zero-dependency local reactive mock state layer with Redux Toolkit, interactive biometric charts using Recharts, client-side authentication guards, and comprehensive modal workflows for user profiles, lab reports, and habit triggers.",
+    keyFeatures: [
+      "Real-time patient biometrics monitoring (Heart Rate ECG, SpO2, Sleep Stages, Active Minutes)",
+      "Wearable ecosystem integration support (Apple Watch, Fitbit, Garmin, Whoop, Oura)",
+      "AI Wellness Companion chat session monitoring and automated triage logs",
+      "Clinical lab report management pipeline with biomarker review workflows",
+      "Nutrition database with calorie, macronutrient breakdown, and food scanning trends",
+      "Behavioral wellness nudges and habit reminder scheduler with engagement metrics",
+      "Interactive Recharts visualizations for user growth, health trends, and vital ranges",
+      "Admin security center with session controls, credentials management, and theme preferences",
+    ],
+    deliverables: [
+      "Complete Next.js 16 App Router & React 19 architecture with TypeScript",
+      "Interactive executive KPI analytics dashboard with dynamic Recharts",
+      "User & patient management system with debounced search and profile inspection modals",
+      "Standalone reactive mock data layer with instant local persistence",
+      "Client-side protected route authentication guards and demo sign-in workflow",
+      "Production deployment configuration optimized for Vercel",
+    ],
+    challenges: [
+      "Decoupling the application from external backend dependencies into an autonomous, high-performance static client with persistent mock state",
+      "Designing multi-metric Recharts visualizations for complex physiological vitals while maintaining fluid 60fps responsiveness",
+      "Structuring comprehensive modal forms and detail dialogs for patient records, lab findings, and behavioral nudge automations",
+    ],
+    futurePlans: [
+      "Direct Bluetooth Web API synchronization with local health monitors and smart scales",
+      "FHIR and HL7 standard export pipelines for hospital EHR system interoperability",
+      "Predictive early warning anomaly detection models using real-time vital streams",
+    ],
+    tags: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "Radix UI",
+      "Recharts",
+      "Lucide React",
+      "Vercel",
+    ],
+    liveUrl: "https://surajashray-ten.vercel.app",
+    githubUrl: "https://github.com/Ramjanict/Vitalis-Health",
+    timeline: "2025 - Present",
+    role: "Frontend Engineer",
+    teamMembers: [{ name: "Md Ramjan Ali", role: "Frontend Engineer" }],
+  },
+  {
+    slug: "cognisphere-ai",
+    title: "Cognisphere AI",
+    tagline: "Unified Multi-Model AI Co-Pilot & Synthesis Platform",
+    category: "Artificial Intelligence & SaaS",
+    status: "Completed",
+    image:
+      "https://github.com/Ramjanict/Cognisphere-AI/blob/main/public/images/preview-hero.jpg?raw=true",
+    images: [
+      "https://github.com/Ramjanict/Cognisphere-AI/blob/main/public/images/preview-hero.jpg?raw=true",
+      "https://github.com/Ramjanict/Cognisphere-AI/blob/main/public/images/preview-comparison.jpg?raw=true",
+      "https://github.com/Ramjanict/Cognisphere-AI/blob/main/public/images/preview-synthesis.jpg?raw=true",
+      "https://github.com/Ramjanict/Cognisphere-AI/blob/main/public/images/preview-dashboard.jpg?raw=true",
+      "https://github.com/Ramjanict/Cognisphere-AI/blob/main/public/images/preview-image-gen.jpg?raw=true",
+    ],
+    description:
+      "A next-generation AI aggregation and synthesis SaaS platform that queries premier LLMs concurrently (GPT-4o, Claude 3.5, Gemini 1.5, and Perplexity), presents side-by-side responses, and generates high-accuracy consensus summaries alongside a creative AI image generation suite.",
+    overview:
+      "Cognisphere is an enterprise-grade AI co-pilot and model comparison platform built to eliminate single-model hallucinations, bias, and fragmented subscription fees. By issuing prompts in parallel to leading foundation models—including OpenAI ChatGPT-4o, Anthropic Claude 3.5, Google Gemini 1.5, and Perplexity—users can inspect individual reasoning nuances side-by-side or leverage Cognisphere's unified synthesis engine for a verified, optimal answer. The platform features an AI Image Studio, KaTeX mathematical typesetting, session management, and Stripe subscription billing.",
+    developersNote:
+      "Architected and developed the full modern frontend using Next.js 16 (App Router), React 18, TypeScript, and Tailwind CSS v4. Engineered parallel asynchronous model dispatching and streaming state management with Redux Toolkit Query, implemented Firebase OAuth and JWT authentication, designed interactive Markdown and LaTeX math rendering (KaTeX), and created fluid dark-mode micro-animations with Framer Motion and Radix UI.",
+    keyFeatures: [
+      "Parallel multi-LLM orchestration across OpenAI GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro, and Perplexity",
+      "Smart AI consensus & synthesis engine delivering hallucination-free, unified summaries",
+      "Interactive side-by-side comparative analysis view with model-specific response tabs",
+      "Generative AI image creation studio with custom aspect ratios, resolutions, and 1-click downloads",
+      "Rich Markdown code formatting with LaTeX mathematical equation rendering via KaTeX",
+      "Dual authentication flow with Email/Password (OTP verification) and Firebase Google OAuth",
+      "Dynamic chat history & session management with debounced search, renaming, and deletion",
+      "Full SaaS billing and subscription lifecycle management powered by Stripe checkout",
+    ],
+    deliverables: [
+      "Modern Next.js 16 App Router frontend architecture with TypeScript & Tailwind CSS v4",
+      "Interactive AI co-pilot workspace and comparative model inspection interface",
+      "Generative AI image studio with responsive media grid and instant downloads",
+      "Redux Toolkit and RTK Query state management layer with persistent session caching",
+      "Multi-mode authentication system (Firebase OAuth + secure JWT session cookies)",
+      "Production CI/CD deployment configuration on Vercel with responsive dark-theme design",
+    ],
+    challenges: [
+      "Orchestrating and reconciling simultaneous streaming responses from multiple distinct AI adapters within a single unified chat UI",
+      "Implementing performant Markdown and complex LaTeX mathematical formula parsing without client-side hydration mismatches",
+      "Designing an adaptive, collapsible dashboard sidebar with real-time session search, pagination, and subscription gating",
+    ],
+    futurePlans: [
+      "Multi-turn conversational context persistence across individual foundation models",
+      "Custom user prompt templates and specialized system persona builder",
+      "Thread export capabilities to PDF, Markdown, and structured JSON",
+      "Multi-modal audio transcription and speech-to-speech interaction",
+    ],
+    tags: [
+      "Next.js 16",
+      "React 18",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Redux Toolkit",
+      "RTK Query",
+      "Firebase Auth",
+      "Radix UI",
+      "Framer Motion",
+      "KaTeX",
+      "Stripe",
+    ],
+    liveUrl: "https://sarbeswardas-frontend-tawny.vercel.app/",
+    githubUrl: "https://github.com/Ramjanict/Cognisphere-AI",
+    timeline: "2025 - Present",
     role: "Frontend Engineer",
     teamMembers: [{ name: "Md Ramjan Ali", role: "Frontend Engineer" }],
   },

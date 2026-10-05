@@ -120,7 +120,7 @@ export default function ClientProjectsList() {
             </div>
 
             {/* Footer Action Row */}
-            <div className="px-5 py-3.5 border-t border-border/40 flex items-center justify-between">
+            <div className="px-5 py-3.5 border-t border-border/40 flex items-center justify-between gap-2">
               <Link
                 href={`/projects/${proj.slug}`}
                 className="text-xs sm:text-sm font-bold text-main hover:underline flex items-center gap-1"
@@ -129,14 +129,27 @@ export default function ClientProjectsList() {
                 <span className="text-base">↗</span>
               </Link>
 
-              <a
-                href={proj.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs sm:text-sm font-semibold text-foreground/80 hover:text-main transition-colors"
-              >
-                Live Demo
-              </a>
+              <div className="flex items-center gap-2">
+                {proj.previewUrl && (
+                  <a
+                    href={proj.previewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20"
+                    title="Frontend Vercel Preview for Hiring Managers"
+                  >
+                    Vercel Demo
+                  </a>
+                )}
+                <a
+                  href={proj.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs sm:text-sm font-semibold text-foreground/80 hover:text-main transition-colors"
+                >
+                  Live Site
+                </a>
+              </div>
             </div>
           </div>
         ))}

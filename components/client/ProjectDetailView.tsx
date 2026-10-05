@@ -269,25 +269,49 @@ export default function ProjectDetailView({
                 </div>
               </div>
 
-              {/* Live Status */}
+              {/* Live Production URL */}
               <div className="flex items-start gap-3">
                 <div className="p-2 rounded-lg bg-blue-500/10 text-blue-500">
                   <Globe className="h-4 w-4" />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
-                    Live Status
+                    Client Production
                   </p>
                   <a
                     href={liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-semibold text-main hover:underline"
+                    className="text-sm font-semibold text-main hover:underline flex items-center gap-1"
                   >
-                    View Live Project
+                    <span>View Live Site</span>
+                    <ExternalLink className="h-3 w-3" />
                   </a>
                 </div>
               </div>
+
+              {/* Vercel Preview / Demo (for Hiring Managers) */}
+              {isClient && clientProject.previewUrl && (
+                <div className="flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-500">
+                    <Rocket className="h-4 w-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground uppercase tracking-wider font-medium">
+                      Frontend Vercel Preview
+                    </p>
+                    <a
+                      href={clientProject.previewUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                    >
+                      <span>View Demo Site</span>
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </div>
+                </div>
+              )}
 
               {/* My Role */}
               <div className="flex items-start gap-3">
@@ -305,16 +329,29 @@ export default function ProjectDetailView({
               </div>
             </div>
 
-            {/* Action Button */}
+            {/* Live Client Production Button */}
             <a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-main hover:bg-[#e05a3c] text-white font-semibold px-5 py-3 rounded-xl text-sm shadow-sm hover:shadow-md transition-all"
             >
-              <ExternalLink className="h-4 w-4" />
-              View Live Project
+              <Globe className="h-4 w-4" />
+              <span>Official Client Live Site</span>
             </a>
+
+            {/* Frontend Vercel Preview Button (For Hiring Managers) */}
+            {isClient && clientProject.previewUrl && (
+              <a
+                href={clientProject.previewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-3 rounded-xl text-sm shadow-sm hover:shadow-md transition-all"
+              >
+                <Rocket className="h-4 w-4" />
+                <span>Frontend Vercel Preview</span>
+              </a>
+            )}
 
             {/* GitHub Button */}
             <a
@@ -324,7 +361,7 @@ export default function ProjectDetailView({
               className="mt-3 w-full inline-flex items-center justify-center gap-2 bg-muted hover:bg-muted/80 text-foreground font-semibold px-5 py-3 rounded-xl text-sm border border-border/60 transition-all"
             >
               <FaGithub className="h-4 w-4" />
-              View Source Code
+              <span>View Source Code</span>
             </a>
           </div>
 
