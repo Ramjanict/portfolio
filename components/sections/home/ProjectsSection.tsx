@@ -7,9 +7,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const FEATURED_PROJECTS = [
-  CLIENT_PROJECTS.find((p) => p.slug === "icesion")!,
-  LEARNING_PROJECTS.find((p) => p.slug === "fullstack-ecommerce-mern")!,
-];
+  CLIENT_PROJECTS.find((p) => p.slug === "areese") || CLIENT_PROJECTS[0],
+  CLIENT_PROJECTS.find((p) => p.slug === "goautomatemd") || CLIENT_PROJECTS[1],
+].filter(Boolean);
 
 export default function ProjectsSection() {
   return (
@@ -110,7 +110,7 @@ export default function ProjectsSection() {
                   </Link>
 
                   <a
-                    href={"liveUrl" in proj ? proj.liveUrl : proj.demoUrl}
+                    href={(proj as any).liveUrl || (proj as any).demoUrl || "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs sm:text-sm font-semibold text-foreground/80 hover:text-main transition-colors"

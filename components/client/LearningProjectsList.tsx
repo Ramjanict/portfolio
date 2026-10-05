@@ -46,7 +46,7 @@ export default function LearningProjectsList() {
             className="bg-card border border-[#FDE2D2] dark:border-white/10 rounded-2xl overflow-hidden flex flex-col justify-between shadow-xs hover:shadow-lg transition-all duration-300 group"
           >
             {/* Top Browser Image Header */}
-            <div className="relative h-52 w-full bg-slate-900 overflow-hidden">
+            <div className="relative h-60 w-full bg-slate-900 overflow-hidden">
               {/* Browser control dots */}
               <div className="absolute top-0 inset-x-0 h-7 bg-slate-800/90 backdrop-blur-xs z-20 flex items-center px-3 gap-1.5 border-b border-white/10">
                 <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
