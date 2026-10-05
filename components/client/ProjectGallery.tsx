@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Clock, Maximize2, X } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface Props {
   title: string;
@@ -14,6 +14,9 @@ interface Props {
 export default function ProjectGallery({ title, category, images }: Props) {
   const [activeIdx, setActiveIdx] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const modalThumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const total = images.length;
 
@@ -36,6 +39,29 @@ export default function ProjectGallery({ title, category, images }: Props) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [nextImage, prevImage]);
 
+  // Auto-scroll active thumbnail into view
+  useEffect(() => {
+    const activeThumb = thumbRefs.current[activeIdx];
+    if (activeThumb) {
+      activeThumb.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+
+    if (isFullscreen) {
+      const activeModalThumb = modalThumbRefs.current[activeIdx];
+      if (activeModalThumb) {
+        activeModalThumb.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
+    }
+  }, [activeIdx, isFullscreen]);
+
   if (!images || images.length === 0) return null;
 
   return (
@@ -57,7 +83,7 @@ export default function ProjectGallery({ title, category, images }: Props) {
       </div>
 
       {/* ── Main Gallery Card Box ── */}
-      <div className="bg-card border border-border/80 rounded-3xl p-4 sm:p-6 shadow-sm">
+      <div className="bg-card border border-border/80 rounded-3xl p-4 sm:p-6 shadow-sm overflow-hidden">
         {/* Main Active Image Display */}
         <div className="relative h-[300px] sm:h-[450px] lg:h-[520px] w-full rounded-2xl overflow-hidden bg-muted/40 border border-border/60 flex items-center justify-center group">
           <AnimatePresence mode="wait">
@@ -114,16 +140,25 @@ export default function ProjectGallery({ title, category, images }: Props) {
 
         {/* ── Thumbnail Strip ── */}
         {total > 1 && (
-          <div className="mt-4">
-            <div className="flex items-center justify-center gap-3 overflow-x-auto py-2 px-1 scrollbar-none">
+          <div className="mt-4 relative w-full">
+            <div
+              className="flex items-center gap-2.5 sm:gap-3 overflow-x-auto py-2 px-2 no-scrollbar scroll-smooth w-full flex-nowrap"
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+              }}
+            >
               {images.map((imgUrl, idx) => {
                 const isActive = idx === activeIdx;
                 return (
                   <button
                     key={idx}
+                    ref={(el) => {
+                      thumbRefs.current[idx] = el;
+                    }}
                     onClick={() => setActiveIdx(idx)}
                     aria-label={`View screenshot ${idx + 1}`}
-                    className={`relative h-16 w-24 sm:w-28 rounded-xl overflow-hidden shrink-0 transition-all cursor-pointer ${
+                    className={`relative h-14 sm:h-16 w-20 sm:w-28 rounded-xl overflow-hidden shrink-0 transition-all cursor-pointer ${
                       isActive
                         ? "border-2 border-main shadow-md scale-105"
                         : "border border-border/60 opacity-60 hover:opacity-100"
@@ -205,10 +240,19 @@ export default function ProjectGallery({ title, category, images }: Props) {
 
             {/* Modal Thumbnails */}
             {total > 1 && (
-              <div className="flex items-center gap-2 overflow-x-auto max-w-full py-2 z-20">
+              <div
+                className="flex items-center gap-2 overflow-x-auto max-w-full py-2 z-20 no-scrollbar scroll-smooth"
+                style={{
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
+                }}
+              >
                 {images.map((imgUrl, idx) => (
                   <button
                     key={idx}
+                    ref={(el) => {
+                      modalThumbRefs.current[idx] = el;
+                    }}
                     onClick={() => setActiveIdx(idx)}
                     className={`relative h-12 w-20 rounded-lg overflow-hidden shrink-0 transition-all ${
                       idx === activeIdx
