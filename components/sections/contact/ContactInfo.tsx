@@ -11,7 +11,7 @@ const contactDetails = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Mirpur-2, Dhaka 1216, Bangladesh",
+    value: "Mirpur-2, Dhaka, Bangladesh",
     href: "https://maps.google.com/?q=Mirpur-2,+Dhaka,+Bangladesh",
   },
   {

@@ -58,7 +58,7 @@ export default function Footer() {
               </div>
 
               <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-5 max-w-[280px]">
-                Full Stack Engineer with 3+ years building and scaling products
+                Full Stack Engineer with 2+ years building and scaling products
                 end-to-end across backend, mobile, and web platforms.
               </p>
 
@@ -122,7 +122,7 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-2.5">
                   <MapPin className="h-4 w-4 text-[#FF7A66] shrink-0" />
-                  <span>Kushtia, Bangladesh</span>
+                  <span>Mirpur-2, Dhaka, Bangladesh</span>
                 </li>
               </ul>
             </div>

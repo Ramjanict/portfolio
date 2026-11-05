@@ -144,7 +144,7 @@ const PERSONAL_INFO: PersonalInfoItem[] = [
   { icon: Phone, value: "+8801303488984" },
   { icon: Mail, value: "mdramjan.ict@gmail.com" },
   { icon: GraduationCap, value: "M.Sc. Engg. in ICT" },
-  { icon: Home, value: "Kushtia, Bangladesh" },
+  { icon: Home, value: "Mirpur-2, Dhaka, Bangladesh" },
 ];
 
 const LANGUAGES = ["English", "Bengali", "Hindi"];

@@ -22,7 +22,7 @@ const CONTACT_INFO = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Mirpur-2, Dhaka 1216, Bangladesh",
+    value: "Mirpur-2, Dhaka, Bangladesh",
     href: "https://maps.google.com/?q=Mirpur-2,Dhaka,Bangladesh",
   },
 ];
@@ -74,7 +74,7 @@ export default function ContactSection() {
                     href={item.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-card border border-border/80 hover:border-main/60 rounded-2xl p-4 sm:p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-colors group block"
+                    className="bg-card border border-border/80 hover:border-main/60 rounded-2xl p-4 sm:p-5 flex items-center gap-4 shadow-sm hover:shadow-md transition-colors group "
                   >
                     <div className="h-11 w-11 rounded-xl bg-[#FDE2D2] dark:bg-main/20 text-main flex items-center justify-center shrink-0 transition-transform group-hover:scale-110">
                       <Icon className="h-5 w-5" />
