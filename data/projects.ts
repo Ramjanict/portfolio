@@ -41,9 +41,81 @@ export interface LearningProject {
 /* ─── Client Projects ──────────────────────────────────────── */
 
 export const CLIENT_PROJECTS: ClientProject[] = [
+{
+  slug: "clipstudio-pro",
+  title: "ClipStudio Pro",
+  tagline: "Cloud & In-Browser Video Editing Suite with Distributed Render Cluster",
+  category: "Video Engineering & Cloud SaaS",
+  status: "Completed",
+  image:
+    "https://raw.githubusercontent.com/Ramjanict/clipstudio-pro/main/frontend/src/assets/images/color_grading_console.jpg",
+  images: [
+    "https://raw.githubusercontent.com/Ramjanict/clipstudio-pro/main/frontend/src/assets/images/video_editor_workstation.jpg",
+    "https://raw.githubusercontent.com/Ramjanict/clipstudio-pro/main/frontend/src/assets/images/color_grading_console.jpg",
 
-
-
+    "https://raw.githubusercontent.com/Ramjanict/clipstudio-pro/main/frontend/src/assets/images/cinema_production_rig.jpg",
+    "https://raw.githubusercontent.com/Ramjanict/clipstudio-pro/main/frontend/src/assets/images/cloud_render_servers.jpg",
+    "https://raw.githubusercontent.com/Ramjanict/clipstudio-pro/main/frontend/src/assets/images/creator_studio_desk.jpg",
+  ],
+  description:
+    "A high-performance cloud and in-browser non-linear video editor (NLE) engineered with React 19, NestJS 11, WebCodecs, FFmpeg WASM, and Socket.IO. Features client-side hardware-accelerated MP4 rendering, cloud rendering offload, and a peer-to-peer distributed browser worker rendering cluster.",
+  overview:
+    "ClipStudio Pro bridges the gap between lightweight web video tools and heavy desktop NLEs. Engineered to eliminate rendering bottlenecks and server compute costs, the platform features a dual-engine export architecture: an in-browser pipeline utilizing the WebCodecs API with GPU hardware encoding and WebAssembly FFmpeg, alongside a server-side NestJS and Fluent-FFmpeg rendering cluster. Creators benefit from a multi-track timeline (Video, Audio, Text, Stickers), keyframe animations, transition blending, color grading filters, and audio waveform scrubbing. Media assets are processed and streamed via Cloudinary, with project versions and user permissions persisted on Neon PostgreSQL.",
+  developersNote:
+    "Served as Lead Full-Stack & Video Systems Engineer. Architected and built the entire application from scratch across frontend, backend, and distributed compute layers. Developed the multi-track timeline and Canvas compositing engine in React 19, TypeScript, and Redux Toolkit; implemented hardware-accelerated client video encoding with the WebCodecs API and FFmpeg WASM; designed a real-time Socket.IO WebSocket gateway that chunks frame rendering across connected browser worker nodes; and built the NestJS 11 REST API with Neon PostgreSQL (Prisma ORM), Cloudinary media pipelines, and role-based security.",
+  keyFeatures: [
+    "Multi-track non-linear timeline supporting video, audio, text, and sticker layers with magnetic snapping and ripple delete",
+    "Hardware-accelerated client-side MP4 video rendering leveraging the modern browser WebCodecs API",
+    "Universal browser fallback rendering powered by WebAssembly FFmpeg (@ffmpeg/ffmpeg)",
+    "Distributed WebSocket render cluster converting idle browser tabs into distributed compute worker nodes",
+    "Cloud FFmpeg rendering engine for offloading complex multi-layer timeline compositions",
+    "Automated Cloudinary media pipeline with video transcoding and hover-scrubbing sprite sheets",
+    "Precision transform controls, keyframing, color grading filters (brightness, contrast, saturation), and transition presets",
+    "Project version history snapshotting and auto-save persistence backed by Neon PostgreSQL",
+    "Role-based Admin Dashboard for monitoring user accounts, cluster compute workers, and system metrics",
+  ],
+  deliverables: [
+    "Responsive React 19 + TypeScript + Vite frontend with custom dark-themed studio UI and Tailwind CSS",
+    "High-performance Canvas video player engine with 60fps playback, transform bounding boxes, and audio visualization",
+    "Hybrid video export engine integrating WebCodecs, MP4-Muxer, and WebAssembly FFmpeg",
+    "Distributed WebSocket cluster gateway (Socket.IO) coordinating frame-chunk distribution across client workers",
+    "Production-grade NestJS 11 REST API backend with Prisma ORM, Neon PostgreSQL, and Cloudinary media processing",
+    "Multi-cloud production deployment with continuous delivery on Vercel (Frontend) and Docker on Render (Backend)",
+  ],
+  challenges: [
+    "Synchronizing multi-layer visual tracks (video frames, animated text overlays, stickers) with audio waveforms at millisecond precision during client-side WebCodecs canvas capture and MP4 muxing",
+    "Architecting a fault-tolerant WebSocket protocol to chunk, distribute, render, and assemble video frames across dynamically connecting/disconnecting browser worker nodes without frame loss",
+    "Achieving fluid 60fps timeline scrubbing performance with zero UI lag by caching Cloudinary sprite sheets and thumbnail assets in IndexedDB",
+  ],
+  futurePlans: [
+    "AI-powered automated scene cut detection and smart silence removal",
+    "Real-time multi-user collaborative editing sessions using WebSockets and operational transformation (OT)",
+    "Automatic speech-to-text audio transcription for instant auto-captions and subtitle burning",
+    "Custom 3D LUT (Look-Up Table) color grading profile imports and film grain emulation",
+  ],
+  tags: [
+    "React 19",
+    "NestJS 11",
+    "TypeScript",
+    "WebCodecs API",
+    "FFmpeg",
+    "WebAssembly",
+    "Prisma ORM",
+    "Neon PostgreSQL",
+    "Cloudinary",
+    "Socket.IO",
+    "Redux Toolkit",
+    "Tailwind CSS",
+    "Vite",
+    "Docker",
+  ],
+  liveUrl: "https://clipstudio-pro-one.vercel.app/",
+  previewUrl: "https://clipstudio-pro.onrender.com/api/docs",
+  githubUrl: "https://github.com/Ramjanict/clipstudio-pro",
+  timeline: "2025 - Present",
+  role: "Lead Full-Stack & Video Systems Engineer",
+  teamMembers: [{ name: "Md Ramjan Ali", role: "Lead Full-Stack Engineer" }],
+},
   
   {
     slug: "cognisphere-ai",
